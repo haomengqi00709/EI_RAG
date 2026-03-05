@@ -25,5 +25,7 @@ export default async function handler(req, res) {
   );
 
   const data = await response.json();
-  return res.status(response.ok ? 200 : 500).json(data);
+  // RunPod wraps the result in { output: {...} } — unwrap it
+  const result = data.output || data;
+  return res.status(response.ok ? 200 : 500).json(result);
 }
