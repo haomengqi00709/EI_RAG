@@ -864,9 +864,8 @@
     document.getElementById("trace-count").textContent = "";
 
     const body = {
-      query:        currentQuery,
+      question:     currentQuery,
       fiscal_year:  selectedYear,
-      top_k:        5,
       power_search: powerSearch,
     };
     if (clarification) body.clarification = clarification;
