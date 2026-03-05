@@ -11,6 +11,7 @@ Patterns implemented:
 Shared by server.py, handler.py, and evaluate_e2e.py.
 """
 
+import base64
 import concurrent.futures
 import json
 
@@ -96,15 +97,27 @@ Return ONLY valid JSON: \
 
 # ── Multi-query generation ────────────────────────────────────────────────────
 
-def generate_query_variants(question: str, model, n: int = 3) -> list[str]:
+def _image_part(image_b64: str) -> dict:
+    """Convert a base64 data URL or raw base64 string to a Gemini inline_data part."""
+    if image_b64.startswith("data:"):
+        header, data = image_b64.split(",", 1)
+        mime_type = header.split(":")[1].split(";")[0]
+    else:
+        data, mime_type = image_b64, "image/jpeg"
+    return {"mime_type": mime_type, "data": base64.b64decode(data)}
+
+
+def generate_query_variants(question: str, model, n: int = 3, image_b64: str = None) -> list[str]:
     """
     Generate n rephrased variants of the question for multi-query retrieval.
     Always returns [original_question, ...variants].
     Falls back to [original_question] on any error.
     """
     try:
+        prompt = MULTI_QUERY_PROMPT.format(question=question, n=n)
+        content = [_image_part(image_b64), prompt] if image_b64 else prompt
         response = model.generate_content(
-            MULTI_QUERY_PROMPT.format(question=question, n=n),
+            content,
             generation_config={"response_mime_type": "application/json"},
         )
         variants = json.loads(response.text)
@@ -300,6 +313,7 @@ def generate_answer_map_reduce(
     faithfulness_model=None,
     chunks:            dict = None,
     neighbor_radius:   int  = 1,
+    image_b64:         str  = None,
 ) -> dict:
     """
     Filter → expand → reduce pipeline:
@@ -375,9 +389,9 @@ def generate_answer_map_reduce(
     # ── 3. Reduce — single call with full context ─────────────────────────────
     context = _build_reduce_context(relevant, adjacents)
     try:
-        resp         = model.generate_content(
-            REDUCE_PROMPT.format(question=question, context=context)
-        )
+        reduce_prompt = REDUCE_PROMPT.format(question=question, context=context)
+        reduce_content = [_image_part(image_b64), reduce_prompt] if image_b64 else reduce_prompt
+        resp         = model.generate_content(reduce_content)
         final_answer = resp.text.strip()
     except Exception as e:
         return {

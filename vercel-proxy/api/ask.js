@@ -7,7 +7,7 @@ export default async function handler(req, res) {
   if (req.method === "OPTIONS") return res.status(200).end();
   if (req.method !== "POST") return res.status(405).json({ error: "Method not allowed" });
 
-  const { question, fiscal_year, power_search } = req.body;
+  const { question, fiscal_year, power_search, image } = req.body;
   if (!question) return res.status(400).json({ error: "No question provided" });
 
   const response = await fetch(
@@ -19,7 +19,7 @@ export default async function handler(req, res) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        input: { question, fiscal_year, power_search },
+        input: { question, fiscal_year, power_search, image },
       }),
     }
   );

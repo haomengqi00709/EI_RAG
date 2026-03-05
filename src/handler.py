@@ -96,6 +96,7 @@ def handler(job):
     question     = inp.get("question", "").strip()
     fiscal_year  = inp.get("fiscal_year", "")
     power_search = bool(inp.get("power_search", False))
+    image_b64    = inp.get("image", None) or None
 
     if not question:
         return {"error": "No question provided"}
@@ -108,7 +109,7 @@ def handler(job):
     top_k           = 10 if power_search else 5
     neighbor_radius = 3  if power_search else 1
 
-    variants = generate_query_variants(question, gemini, n=3)
+    variants = generate_query_variants(question, gemini, n=3, image_b64=image_b64)
     results  = retrieve_multi_query(
         questions=variants,
         vectors=vectors, bm25=bm25,
@@ -122,6 +123,7 @@ def handler(job):
     gen          = generate_answer_map_reduce(
         question, results, gemini, gemini,
         chunks=chunks, neighbor_radius=neighbor_radius,
+        image_b64=image_b64,
     )
     search_stage = 2 if power_search else 1
 
@@ -141,6 +143,7 @@ def handler(job):
             gen_s3 = generate_answer_map_reduce(
                 question, results_s3, gemini, gemini,
                 chunks=chunks, neighbor_radius=3,
+                image_b64=image_b64,
             )
             if not gen_s3["abstained"]:
                 gen     = gen_s3
