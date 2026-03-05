@@ -1,0 +1,10 @@
+.env
+venv/
+data/
+Documents/*.docx
+Documents/~$*
+__pycache__/
+*.zip
+*.pyc
+.DS_Store
+yes./
