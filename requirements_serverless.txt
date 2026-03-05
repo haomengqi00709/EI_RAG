@@ -1,0 +1,9 @@
+# EI MAR RAG pipeline — RunPod Serverless (lean, no web server or PDF tools)
+runpod>=1.7.0
+rank_bm25>=0.2.2
+sentence-transformers>=3.0.0
+google-generativeai>=0.8.0
+numpy>=1.26.0
+transformers>=4.44.0
+accelerate>=0.30.0
+python-dotenv>=1.0.0

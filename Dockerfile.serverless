@@ -1,0 +1,23 @@
+# ── EI MAR RAG — RunPod Serverless ───────────────────────────────────────────
+# Image contains only source code + Python packages.
+# Heavy data (vectors, chunks, HF model cache) lives on the network volume
+# mounted at /runpod-volume — no cold-start re-download after first run.
+
+FROM runpod/pytorch:2.4.0-py3.11-cuda12.4.1-devel-ubuntu22.04
+
+WORKDIR /app
+
+# Python packages (lean — no flask, no PDF tools)
+COPY requirements_serverless.txt .
+RUN pip install --no-cache-dir --ignore-installed blinker -q && \
+    pip install --no-cache-dir -r requirements_serverless.txt -q && \
+    pip uninstall torchvision -y 2>/dev/null || true
+
+# Source code
+COPY src/ /app/src/
+
+ENV PYTHONPATH=/app/src
+ENV PYTHONUNBUFFERED=1
+ENV RUNPOD_VOLUME_PATH=/runpod-volume
+
+CMD ["python", "/app/src/handler.py"]
