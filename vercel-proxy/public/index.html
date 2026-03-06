@@ -138,12 +138,20 @@
       border: 1.5px solid var(--border);
       border-radius: var(--radius);
       cursor: pointer;
-      font-size: 1.1rem;
+      font-size: 1.2rem;
+      font-weight: 600;
       line-height: 1;
       transition: background .15s;
       display: flex; align-items: center;
+      color: var(--muted);
     }
-    .btn-img:hover { background: #e2e8f0; }
+    .btn-img:hover { background: #e2e8f0; color: var(--text); }
+
+    .input-row.drag-over input {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(37,99,235,.15);
+      background: #f0f7ff;
+    }
     .img-preview {
       display: none;
       align-items: center;
@@ -739,7 +747,7 @@
       <input type="text" id="query"
              placeholder="Ask anything about EI policy data… (supports images)"
              onkeydown="if(event.key==='Enter') doAsk()" />
-      <button class="btn-img" title="Attach image" onclick="document.getElementById('img-input').click()">🖼</button>
+      <button class="btn-img" title="Attach image (or paste / drag-and-drop)" onclick="document.getElementById('img-input').click()">+</button>
       <input type="file" id="img-input" accept="image/*" style="display:none" onchange="handleImageUpload(event)" />
       <button class="btn-ask" id="btn-ask" onclick="doAsk()">Ask →</button>
     </div>
@@ -861,6 +869,37 @@
     document.getElementById("img-input").value = "";
     document.getElementById("img-preview").style.display = "none";
   }
+
+  function _applyImageFile(file) {
+    if (!file || !file.type.startsWith("image/")) return;
+    if (file.size > 4 * 1024 * 1024) { alert("Image must be under 4 MB."); return; }
+    const reader = new FileReader();
+    reader.onload = e => {
+      attachedImage = e.target.result;
+      document.getElementById("img-thumb").src = attachedImage;
+      document.getElementById("img-name").textContent = file.name || "pasted image";
+      document.getElementById("img-preview").style.display = "flex";
+    };
+    reader.readAsDataURL(file);
+  }
+
+  // Paste image anywhere on the page
+  document.addEventListener("paste", e => {
+    const items = Array.from(e.clipboardData?.items || []);
+    const imgItem = items.find(i => i.type.startsWith("image/"));
+    if (imgItem) { e.preventDefault(); _applyImageFile(imgItem.getAsFile()); }
+  });
+
+  // Drag-and-drop onto the input row
+  const inputRow = document.querySelector(".input-row");
+  inputRow.addEventListener("dragover", e => { e.preventDefault(); inputRow.classList.add("drag-over"); });
+  inputRow.addEventListener("dragleave", () => inputRow.classList.remove("drag-over"));
+  inputRow.addEventListener("drop", e => {
+    e.preventDefault();
+    inputRow.classList.remove("drag-over");
+    const file = Array.from(e.dataTransfer.files).find(f => f.type.startsWith("image/"));
+    if (file) _applyImageFile(file);
+  });
 
   // Fetch server config once on load to know if PDFs are available
   fetch("/config").then(r => r.json()).then(c => { pdfsAvailable = !!c.pdfs_available; }).catch(() => {});
