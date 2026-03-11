@@ -118,7 +118,7 @@ def generate_query_variants(question: str, model, n: int = 3, image_b64: str = N
         content = [_image_part(image_b64), prompt] if image_b64 else prompt
         response = model.generate_content(
             content,
-            generation_config={"response_mime_type": "application/json"},
+            generation_config={"response_mime_type": "application/json", "temperature": 0},
         )
         variants = json.loads(response.text)
         if isinstance(variants, list):
@@ -158,35 +158,47 @@ def check_clarification(answer: str, question: str, model) -> tuple[bool, str | 
 
 def _build_idx_map(chunks: dict) -> dict:
     """
-    Build a (fy_prefix, sequential_idx) → chunk_id lookup for O(1) adjacent access.
-    chunk_id format: {FY}_{type}_{page}_{idx}  e.g. 20192020_table_0306_0147
+    Build a (fy_prefix, narrative_position) → chunk_id lookup for narrative-only
+    adjacent access. Only narrative chunks are indexed — tables, footnotes, and
+    charts have their own expansion mechanisms and should not pollute this map.
+
+    Position is assigned in insertion order (document order) per fiscal year,
+    not taken from the chunk_id suffix (which is per-type and causes collisions).
     """
+    # Group narrative chunk_ids by fiscal year in document order
+    fy_narratives: dict[str, list[str]] = {}
+    for cid, chunk in chunks.items():
+        if chunk.get("chunk_type") == "narrative":
+            fy = cid.split("_")[0]
+            fy_narratives.setdefault(fy, []).append(cid)
+
     idx_map = {}
-    for cid in chunks:
-        fy = cid.split("_")[0]
-        try:
-            idx = int(cid.rsplit("_", 1)[1])
-            idx_map[(fy, idx)] = cid
-        except (ValueError, IndexError):
-            pass
+    for fy, cids in fy_narratives.items():
+        for pos, cid in enumerate(cids):
+            idx_map[(fy, pos)] = cid
     return idx_map
 
 
 def _get_adjacent_chunks(
     chunk_id: str, chunks: dict, idx_map: dict, radius: int = 1
 ) -> list[dict]:
-    """Return adjacent chunks within ±radius by sequential index."""
+    """Return adjacent narrative chunks within ±radius positions.
+    Only meaningful for narrative chunks — non-narrative chunks return empty."""
+    chunk = chunks.get(chunk_id, {})
+    if chunk.get("chunk_type") != "narrative":
+        return []
+
     fy = chunk_id.split("_")[0]
-    try:
-        idx = int(chunk_id.rsplit("_", 1)[1])
-    except (ValueError, IndexError):
+    # Find this chunk's position in the narrative-only idx_map
+    pos = next((p for (f, p), cid in idx_map.items() if f == fy and cid == chunk_id), None)
+    if pos is None:
         return []
 
     adjacent = []
     for delta in range(-radius, radius + 1):
         if delta == 0:
             continue
-        neighbour_id = idx_map.get((fy, idx + delta))
+        neighbour_id = idx_map.get((fy, pos + delta))
         if neighbour_id and neighbour_id in chunks:
             adjacent.append(chunks[neighbour_id])
     return adjacent

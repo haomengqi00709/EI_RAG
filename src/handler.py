@@ -36,6 +36,7 @@ from embed import load_embedding_model
 from generate import generate_answer_map_reduce, generate_query_variants
 from retrieve import (
     _deduplicate,
+    expand_context,
     expand_full_page,
     load_bm25,
     load_chunks,
@@ -53,11 +54,16 @@ GEMINI_MODEL = os.getenv("GEMINI_MODEL", "gemini-2.0-flash")
 gemini = genai.GenerativeModel(model_name=GEMINI_MODEL)
 
 # ── Query understanding ────────────────────────────────────────────────────────
+VALID_FISCAL_YEARS = {"2019-2020", "2020-2021", "2021-2022", "2022-2023", "2023-2024"}
+
 UNDERSTAND_PROMPT = """\
 Extract search filters from this question about Canadian Employment Insurance reports.
+Valid fiscal years are ONLY: 2019-2020, 2020-2021, 2021-2022, 2022-2023, 2023-2024.
+If the question mentions a calendar year like "2019", map it to the fiscal year starting \
+that year (e.g. "2019" → "2019-2020", "2020" → "2020-2021"). If unclear, use null.
 Return ONLY valid JSON with these fields (use null if not clearly specified):
 {{
-  "fiscal_year": "YYYY-YYYY format or null",
+  "fiscal_year": "one of the valid fiscal years above, or null",
   "chunk_type": "table or narrative or null"
 }}
 Question: {question}"""
@@ -67,9 +73,13 @@ def understand_query(question: str) -> dict:
     try:
         r = gemini.generate_content(
             UNDERSTAND_PROMPT.format(question=question),
-            generation_config={"response_mime_type": "application/json"},
+            generation_config={"response_mime_type": "application/json", "temperature": 0},
         )
-        return {k: v for k, v in json.loads(r.text).items() if v}
+        result = {k: v for k, v in json.loads(r.text).items() if v}
+        if "fiscal_year" in result and result["fiscal_year"] not in VALID_FISCAL_YEARS:
+            print(f"  Invalid fiscal year '{result['fiscal_year']}' — ignoring")
+            del result["fiscal_year"]
+        return result
     except Exception:
         return {}
 
@@ -118,6 +128,10 @@ def handler(job):
         model=embed_model, tokenizer=tokenizer,
         use_rerank=True,
     )
+
+    results = expand_context(results, chunks)
+    results = _deduplicate(results)
+    results = results[:top_k]
 
     # Generation
     gen          = generate_answer_map_reduce(

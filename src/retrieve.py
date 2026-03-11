@@ -628,8 +628,13 @@ def expand_context(results: list[dict], chunks: dict, max_related: int = 3) -> l
         chunk_id = chunk.get("chunk_id", "")
         extra: list = []
 
-        # Source 1: related_chunk_ids (narrative → table links from chunk.py)
+        # Source 1a: related_chunk_ids (narrative → nearby table/chart, page proximity)
         for cid in chunk.get("related_chunk_ids", [])[:max_related]:
+            if cid in chunks:
+                extra.append(chunks[cid])
+
+        # Source 1b: referenced_chunk_ids (narrative → explicitly mentioned table/annex/chart)
+        for cid in chunk.get("referenced_chunk_ids", [])[:max_related]:
             if cid in chunks:
                 extra.append(chunks[cid])
 
