@@ -902,7 +902,7 @@
   });
 
   // Fetch server config once on load to know if PDFs are available
-  fetch("/config").then(r => r.json()).then(c => { pdfsAvailable = !!c.pdfs_available; }).catch(() => {});
+  fetch("/api/config").then(r => r.json()).then(c => { pdfsAvailable = !!c.pdfs_available; }).catch(() => {});
 
   // ── Year pill selection ────────────────────────────────────────────────────
   document.getElementById("year-pills").addEventListener("click", e => {
