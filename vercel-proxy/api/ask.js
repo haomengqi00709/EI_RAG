@@ -25,18 +25,21 @@ export default async function handler(req, res) {
   );
 
   const data = await response.json();
-  console.log("RunPod raw response:", JSON.stringify(data).slice(0, 500));
-  // RunPod wraps the result in { output: {...} } — unwrap it.
-  // Generator handlers return output as an array of all yielded values;
-  // take the last element which is the final result dict.
-  let result = data.output || data;
-  if (Array.isArray(result)) {
-    result = result[result.length - 1] || {};
+  // RunPod wraps the result in { output: {...} } — unwrap it
+  const result = data.output ?? data;
+
+  // RunPod returns a status object (no output) when the worker is cold and
+  // the job doesn't complete within runsync's wait window.
+  if (!result.answer && result.status) {
+    if (result.status === "IN_QUEUE" || result.status === "IN_PROGRESS") {
+      return res.status(503).json({
+        error: "The server is warming up after being idle. Please try again in about 60 seconds.",
+      });
+    }
+    if (result.status === "FAILED") {
+      return res.status(500).json({ error: result.error || "Request failed on the server." });
+    }
   }
-  // Strip the {type:"result"} wrapper added for streaming compatibility
-  if (result.type === "result") {
-    const { type: _t, ...rest } = result;
-    result = rest;
-  }
+
   return res.status(response.ok ? 200 : 500).json(result);
 }
