@@ -606,6 +606,28 @@
     .btn-refine:hover { background: #d97706; }
     .btn-refine:disabled { background: #fcd34d; cursor: not-allowed; }
 
+    /* ── GPU status dot ───────────────────────────────────────────── */
+    .gpu-status {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.75rem;
+      color: var(--muted);
+      white-space: nowrap;
+      cursor: default;
+    }
+    .gpu-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--muted);
+      flex-shrink: 0;
+      transition: background .4s;
+    }
+    .gpu-dot.green  { background: var(--green); }
+    .gpu-dot.yellow { background: var(--amber); }
+    .gpu-dot.red    { background: var(--red); }
+
     /* ── Sample questions ─────────────────────────────────────────── */
     .sample-questions {
       display: flex;
@@ -762,6 +784,10 @@
       <button class="year-pill" data-year="2021-2022">2021–22</button>
       <button class="year-pill" data-year="2022-2023">2022–23</button>
       <button class="year-pill" data-year="2023-2024">2023–24</button>
+    </div>
+    <div class="gpu-status" id="gpu-status" title="GPU availability">
+      <div class="gpu-dot" id="gpu-dot"></div>
+      <span id="gpu-label">GPU …</span>
     </div>
   </div>
 </header>
@@ -943,6 +969,40 @@
   // Fetch server config once on load to know if PDFs are available
   fetch("/api/config").then(r => r.json()).then(c => { pdfsAvailable = !!c.pdfs_available; }).catch(() => {});
 
+  // ── GPU status indicator (polls /api/health every 30s, no GPU cost) ────────
+  async function updateGpuStatus() {
+    const dot   = document.getElementById("gpu-dot");
+    const label = document.getElementById("gpu-label");
+    try {
+      const data = await fetch("/api/health").then(r => r.json());
+      if (data.error) throw new Error(data.error);
+      const available = (data.idle || 0) + (data.ready || 0);
+      const starting  = data.initializing || 0;
+      const busy      = data.running || 0;
+      if (available > 0) {
+        dot.className   = "gpu-dot green";
+        label.textContent = "GPU ready";
+        document.getElementById("gpu-status").title =
+          `${available} worker(s) idle · ${busy} running`;
+      } else if (starting > 0) {
+        dot.className   = "gpu-dot yellow";
+        label.textContent = "GPU starting";
+        document.getElementById("gpu-status").title =
+          `${starting} worker(s) initializing`;
+      } else {
+        dot.className   = "gpu-dot red";
+        label.textContent = "GPU unavailable";
+        document.getElementById("gpu-status").title =
+          `No workers available — responses may be delayed`;
+      }
+    } catch (_) {
+      dot.className   = "gpu-dot";
+      label.textContent = "GPU …";
+    }
+  }
+  updateGpuStatus();
+  setInterval(updateGpuStatus, 30000);
+
   // ── Year pill selection ────────────────────────────────────────────────────
   document.getElementById("year-pills").addEventListener("click", e => {
     const pill = e.target.closest(".year-pill");
@@ -1093,16 +1153,7 @@
             renderSources(event.sources || []);
           } else if (event.type === "error") {
             clearColdStartTimer();
-            const isGpuError = event.error && event.error.includes("GPU resources");
-            if (isGpuError) {
-              setStatus("GPU unavailable");
-              document.getElementById("answer-text").innerHTML =
-                `<span style="color:var(--amber)">&#9888; ${esc(event.error)}</span>`;
-              document.getElementById("answer-meta").innerHTML =
-                `<span class="badge badge-amber">Service unavailable</span>`;
-            } else {
-              setStatus("Error: " + event.error);
-            }
+            setStatus("Error: " + event.error);
           }
         }
       }
