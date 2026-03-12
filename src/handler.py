@@ -111,9 +111,11 @@ def handler(job):
     image_b64    = inp.get("image", None) or None
 
     if not question:
-        return {"error": "No question provided"}
+        yield {"type": "result", "error": "No question provided"}
+        return
 
     # Auto-detect fiscal year if not supplied
+    yield {"type": "progress", "message": "Understanding your question\u2026"}
     filters     = understand_query(question)
     fy_filter   = fiscal_year or filters.get("fiscal_year", "")
     strict_year = bool(fiscal_year)  # skip year-relaxed in Stage 3 when caller specified a year
@@ -121,6 +123,7 @@ def handler(job):
     # Deep search (power_search=True): run Stage 3 directly for all questions
     # Normal search: Stage 1, then auto-escalate to Stage 3 if abstained
     if power_search:
+        yield {"type": "progress", "message": "Running deep search (Stage 3) \u2014 HyDE + BM25 + semantic\u2026"}
         results = retrieve_stage3(
             question=question,
             vectors=vectors, bm25=bm25,
@@ -131,6 +134,7 @@ def handler(job):
             strict_year=strict_year,
         )
         results = _deduplicate(results)
+        yield {"type": "progress", "message": f"Found {len(results)} relevant chunks \u2014 generating answer\u2026"}
         gen = generate_answer_map_reduce(
             question, results, gemini, gemini,
             chunks=chunks, neighbor_radius=3,
@@ -138,7 +142,9 @@ def handler(job):
         )
         search_stage = 3
     else:
+        yield {"type": "progress", "message": "Generating search variants\u2026"}
         variants = generate_query_variants(question, gemini, n=3, image_b64=image_b64)
+        yield {"type": "progress", "message": f"Searching {len(manifest):,} document chunks (Stage 1)\u2026"}
         results  = retrieve_multi_query(
             questions=variants,
             vectors=vectors, bm25=bm25,
@@ -150,6 +156,7 @@ def handler(job):
         results = expand_context(results, chunks)
         results = _deduplicate(results)
         results = results[:5]
+        yield {"type": "progress", "message": f"Found {len(results)} relevant chunks \u2014 generating answer\u2026"}
         gen = generate_answer_map_reduce(
             question, results, gemini, gemini,
             chunks=chunks, neighbor_radius=1,
@@ -159,7 +166,7 @@ def handler(job):
 
         # Stage 3 auto-escalation when Stage 1 abstains
         if gen["abstained"]:
-            print(f"  Stage 1 abstained → escalating to Stage 3…")
+            yield {"type": "progress", "message": "Stage 1 found insufficient context \u2014 escalating to deep search (Stage 3)\u2026"}
             results_s3 = retrieve_stage3(
                 question=question,
                 vectors=vectors, bm25=bm25,
@@ -171,6 +178,7 @@ def handler(job):
             )
             if results_s3:
                 results_s3 = _deduplicate(results_s3)
+                yield {"type": "progress", "message": f"Found {len(results_s3)} chunks from deep search \u2014 generating answer\u2026"}
                 gen_s3 = generate_answer_map_reduce(
                     question, results_s3, gemini, gemini,
                     chunks=chunks, neighbor_radius=3,
@@ -200,7 +208,8 @@ def handler(job):
             "signal":             signal_by_rank.get(idx + 1, "UNKNOWN"),
         })
 
-    return {
+    yield {
+        "type":             "result",
         "question":         question,
         "answer":           gen["answer"],
         "abstained":        gen["abstained"],

@@ -560,6 +560,37 @@
     .btn-refine:hover { background: #d97706; }
     .btn-refine:disabled { background: #fcd34d; cursor: not-allowed; }
 
+    /* ── Sample questions ─────────────────────────────────────────── */
+    .sample-questions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      gap: 6px;
+    }
+    .sample-label {
+      font-size: 0.75rem;
+      color: var(--muted);
+      white-space: nowrap;
+      padding-top: 5px;
+    }
+    .sample-chip {
+      padding: 5px 12px;
+      border-radius: 99px;
+      border: 1px solid var(--border);
+      background: #f8fafc;
+      font-size: 0.75rem;
+      color: var(--secondary);
+      cursor: pointer;
+      transition: all .15s;
+      text-align: left;
+      line-height: 1.4;
+    }
+    .sample-chip:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: #eff6ff;
+    }
+
     /* ── Empty state ──────────────────────────────────────────────── */
     .empty-state {
       text-align: center;
@@ -708,6 +739,13 @@
       <input type="checkbox" id="power-search" />
       <span><strong>Deep Search</strong> — uses Stage 3 retrieval (HyDE + BM25 + broader search) for hard questions</span>
     </label>
+
+    <div class="sample-questions">
+      <span class="sample-label">Try:</span>
+      <button class="sample-chip" onclick="useQuestion(this)">What was the total amount paid out in EI regular benefits during the 2019/2020 fiscal year?</button>
+      <button class="sample-chip" onclick="useQuestion(this)">By what percentage did employment in Canada decline by April 2020 compared with February 2020?</button>
+      <button class="sample-chip" onclick="useQuestion(this)">What is the minimum age requirement and standard educational level usually needed to enter an apprenticeship program in most jurisdictions?</button>
+    </div>
   </div>
 
   <!-- Status bar -->
@@ -791,9 +829,17 @@
   let lastAnswer    = "";
   let lastSources   = [];
   let pdfsAvailable = false;
+  let _statusTimer  = null;
 
   // Fetch server config once on load to know if PDFs are available
   fetch("/config").then(r => r.json()).then(c => { pdfsAvailable = !!c.pdfs_available; }).catch(() => {});
+
+  // ── Sample question chips ──────────────────────────────────────────────────
+  function useQuestion(btn) {
+    document.getElementById("query").value = btn.textContent.trim();
+    document.getElementById("query").focus();
+    doAsk();
+  }
 
   // ── Year pill selection ────────────────────────────────────────────────────
   document.getElementById("year-pills").addEventListener("click", e => {
@@ -838,6 +884,45 @@
     }
   }
 
+  // Progressive loading messages — time-based, no backend changes needed
+  function startLoadingStatus(powerSearch) {
+    const steps = powerSearch ? [
+      [0,   "Running deep search (Stage 3) — HyDE + BM25 + semantic…"],
+      [10,  "Retrieving and expanding context…"],
+      [25,  "Generating answer from retrieved excerpts…"],
+      [50,  "Taking longer than usual — model may be loading…"],
+      [90,  "Cold start detected — model loading from scratch, usually 1–2 min after inactivity…"],
+      [150, "Still loading — hang tight, almost ready…"],
+    ] : [
+      [0,   "Generating query variants…"],
+      [5,   "Retrieving relevant chunks (Stage 1)…"],
+      [18,  "Filtering and ranking results…"],
+      [30,  "Generating answer…"],
+      [50,  "Escalating to deep search (Stage 3) if needed…"],
+      [75,  "Taking longer than usual — model may be loading…"],
+      [120, "Cold start detected — model loading from scratch, usually 1–2 min after inactivity…"],
+      [180, "Still loading — hang tight, almost ready…"],
+    ];
+
+    const t0 = Date.now();
+    let stepIdx = 0;
+
+    function tick() {
+      const elapsed = (Date.now() - t0) / 1000;
+      while (stepIdx < steps.length - 1 && elapsed >= steps[stepIdx + 1][0]) {
+        stepIdx++;
+      }
+      setStatus(steps[stepIdx][1], true);
+    }
+
+    tick();
+    _statusTimer = setInterval(tick, 2000);
+  }
+
+  function stopLoadingStatus() {
+    if (_statusTimer) { clearInterval(_statusTimer); _statusTimer = null; }
+  }
+
   // ── Main Ask flow ──────────────────────────────────────────────────────────
   async function doAsk(clarification) {
     const query = document.getElementById("query").value.trim();
@@ -850,7 +935,7 @@
 
     btn.disabled = true;
     btn.textContent = "Thinking…";
-    setStatus("Running pipeline — generating query variants, retrieving chunks…", true);
+    startLoadingStatus(powerSearch);
 
     document.getElementById("empty-state").style.display = "none";
     document.getElementById("answer-section").style.display = "flex";
@@ -886,6 +971,7 @@
       }
 
       const data = await resp.json();
+      stopLoadingStatus();
       const elapsed = ((Date.now() - t0) / 1000).toFixed(1);
       setStatus(`Answered in ${elapsed}s`);
 
@@ -897,6 +983,7 @@
       renderSources(data.sources || []);
 
     } catch (e) {
+      stopLoadingStatus();
       setStatus("Network error: " + e.message);
     } finally {
       btn.disabled = false;
