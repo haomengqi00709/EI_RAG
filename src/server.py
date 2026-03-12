@@ -127,6 +127,8 @@ VALID_FISCAL_YEARS = {"2019-2020", "2020-2021", "2021-2022", "2022-2023", "2023-
 UNDERSTAND_PROMPT = """\
 Extract search filters from this question about Canadian Employment Insurance reports.
 Valid fiscal years are ONLY: 2019-2020, 2020-2021, 2021-2022, 2022-2023, 2023-2024.
+Fiscal year abbreviations used in the reports map as follows:
+FY1920 → 2019-2020, FY2021 → 2020-2021, FY2122 → 2021-2022, FY2223 → 2022-2023, FY2324 → 2023-2024.
 If the question mentions a calendar year like "2019", map it to the fiscal year starting \
 that year (e.g. "2019" → "2019-2020", "2020" → "2020-2021"). If unclear, use null.
 Return ONLY valid JSON with these fields (use null if not clearly specified):
