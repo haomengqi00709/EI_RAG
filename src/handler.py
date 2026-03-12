@@ -20,12 +20,12 @@ from pathlib import Path
 
 # ── Volume + env setup (before any local imports) ─────────────────────────────
 VOLUME  = Path(os.getenv("RUNPOD_VOLUME_PATH", "/runpod-volume"))
-WORKDIR = VOLUME / "RAG_experiment2"
+WORKDIR = VOLUME  # data/ lives directly under the volume root
 os.chdir(WORKDIR)
 
 # HF model cache on volume → persists across cold starts
-os.environ["HF_HOME"]            = str(VOLUME / "huggingface")
-os.environ["TRANSFORMERS_CACHE"] = str(VOLUME / "huggingface")
+os.environ["HF_HOME"]            = str(VOLUME / "hf-cache")
+os.environ["TRANSFORMERS_CACHE"] = str(VOLUME / "hf-cache")
 
 sys.path.insert(0, str(Path(__file__).parent))
 
