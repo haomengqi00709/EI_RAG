@@ -25,6 +25,7 @@ export default async function handler(req, res) {
   );
 
   const data = await response.json();
+  console.log("RunPod raw response:", JSON.stringify(data).slice(0, 500));
   // RunPod wraps the result in { output: {...} } — unwrap it.
   // Generator handlers return output as an array of all yielded values;
   // take the last element which is the final result dict.
