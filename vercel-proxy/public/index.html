@@ -976,24 +976,24 @@
     try {
       const data = await fetch("/api/health").then(r => r.json());
       if (data.error) throw new Error(data.error);
-      const available = (data.idle || 0) + (data.ready || 0);
-      const starting  = data.initializing || 0;
-      const busy      = data.running || 0;
-      if (available > 0) {
-        dot.className   = "gpu-dot green";
+      const idle    = (data.idle  || 0) + (data.ready || 0);
+      const busy    = data.running      || 0;
+      const starting = data.initializing || 0;
+      const status  = document.getElementById("gpu-status");
+      if (idle > 0) {
+        dot.className     = "gpu-dot green";
         label.textContent = "GPU ready";
-        document.getElementById("gpu-status").title =
-          `${available} worker(s) idle · ${busy} running`;
-      } else if (starting > 0) {
-        dot.className   = "gpu-dot yellow";
-        label.textContent = "GPU starting";
-        document.getElementById("gpu-status").title =
-          `${starting} worker(s) initializing`;
+        status.title      = `${idle} worker(s) idle${busy ? ` · ${busy} running` : ""}`;
+      } else if (busy > 0 || starting > 0) {
+        dot.className     = "gpu-dot yellow";
+        label.textContent = busy > 0 ? "GPU busy" : "GPU starting";
+        status.title      = busy > 0
+          ? `${busy} worker(s) processing — may queue briefly`
+          : `${starting} worker(s) initializing`;
       } else {
-        dot.className   = "gpu-dot red";
+        dot.className     = "gpu-dot red";
         label.textContent = "GPU unavailable";
-        document.getElementById("gpu-status").title =
-          `No workers available — responses may be delayed`;
+        status.title      = "No workers available — responses may be delayed";
       }
     } catch (_) {
       dot.className   = "gpu-dot";
@@ -1158,7 +1158,10 @@
         }
       }
 
-      if (!gotResult) setStatus("No response received \u2014 please try again.");
+      if (!gotResult) {
+        clearColdStartTimer();
+        setStatus("No response received \u2014 please try again.");
+      }
 
     } catch (e) {
       clearColdStartTimer();
