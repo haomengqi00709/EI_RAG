@@ -374,9 +374,11 @@ def answer():
     )
 
     # #8: Query understanding — extract fiscal_year, chunk_type, province
-    filters     = understand_query(effective_question)
-    fiscal_year = data.get("fiscal_year") or filters.get("fiscal_year")
-    chunk_type  = data.get("chunk_type")  or filters.get("chunk_type")
+    filters      = understand_query(effective_question)
+    user_fy      = data.get("fiscal_year")   # explicitly set by user in UI
+    fiscal_year  = user_fy or filters.get("fiscal_year")
+    strict_year  = bool(user_fy)             # skip year-relaxed in Stage 3 when user picked a year
+    chunk_type   = data.get("chunk_type")  or filters.get("chunk_type")
     province    = filters.get("province", "")
     base_q      = f"{effective_question} {province}".strip() if province else effective_question
 
@@ -390,6 +392,7 @@ def answer():
             llm_model=gemini, top_k=top_k * 2,
             fiscal_year=fiscal_year,
             model=embed_model, tokenizer=tokenizer,
+            strict_year=strict_year,
         )
         results = _deduplicate(results)
         gen = generate_answer_map_reduce(
@@ -426,6 +429,7 @@ def answer():
                 llm_model=gemini, top_k=10,
                 fiscal_year=fiscal_year,
                 model=embed_model, tokenizer=tokenizer,
+                strict_year=strict_year,
             )
             if results_s3:
                 results_s3 = _deduplicate(results_s3)

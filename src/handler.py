@@ -112,8 +112,9 @@ def handler(job):
         return {"error": "No question provided"}
 
     # Auto-detect fiscal year if not supplied
-    filters   = understand_query(question)
-    fy_filter = fiscal_year or filters.get("fiscal_year", "")
+    filters     = understand_query(question)
+    fy_filter   = fiscal_year or filters.get("fiscal_year", "")
+    strict_year = bool(fiscal_year)  # skip year-relaxed in Stage 3 when caller specified a year
 
     # Deep search (power_search=True): run Stage 3 directly for all questions
     # Normal search: Stage 1, then auto-escalate to Stage 3 if abstained
@@ -125,6 +126,7 @@ def handler(job):
             llm_model=gemini, top_k=10,
             fiscal_year=fy_filter,
             model=embed_model, tokenizer=tokenizer,
+            strict_year=strict_year,
         )
         results = _deduplicate(results)
         gen = generate_answer_map_reduce(
@@ -163,6 +165,7 @@ def handler(job):
                 llm_model=gemini, top_k=10,
                 fiscal_year=fy_filter,
                 model=embed_model, tokenizer=tokenizer,
+                strict_year=strict_year,
             )
             if results_s3:
                 results_s3 = _deduplicate(results_s3)

@@ -542,6 +542,7 @@ def retrieve_stage3(
     fiscal_year: str | None = None,
     model=None,
     tokenizer=None,
+    strict_year: bool = False,
 ) -> list[dict]:
     """
     Stage 3 deep retrieval — triggered when Stage 2 (power search) abstains.
@@ -550,6 +551,7 @@ def retrieve_stage3(
       1. HyDE          — hypothetical document embedding bridges question/doc phrasing gap
       2. Keyword BM25  — extracted acronyms/numbers searched via BM25
       3. Year-relaxed  — removes FY filter to catch content with weak FY metadata
+                         (skipped when strict_year=True, e.g. user manually selected year)
 
     Then applies full-page context expansion so the reduce LLM sees all chunks
     on the same page as each top result.
@@ -578,9 +580,10 @@ def retrieve_stage3(
         top_k=candidate_k, fiscal_year=fiscal_year,
     )
 
-    # Signal 3: Year-relaxed dense search (only when FY filter was applied)
+    # Signal 3: Year-relaxed dense search (only when FY filter was auto-detected)
+    # Skipped when strict_year=True (user manually selected a year)
     year_relaxed: list[dict] = []
-    if fiscal_year:
+    if fiscal_year and not strict_year:
         print("  [Stage 3] Year-relaxed dense search…")
         year_relaxed = retrieve(
             question=question, vectors=vectors,
