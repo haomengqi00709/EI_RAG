@@ -1093,7 +1093,16 @@
             renderSources(event.sources || []);
           } else if (event.type === "error") {
             clearColdStartTimer();
-            setStatus("Error: " + event.error);
+            const isGpuError = event.error && event.error.includes("GPU resources");
+            if (isGpuError) {
+              setStatus("GPU unavailable");
+              document.getElementById("answer-text").innerHTML =
+                `<span style="color:var(--amber)">&#9888; ${esc(event.error)}</span>`;
+              document.getElementById("answer-meta").innerHTML =
+                `<span class="badge badge-amber">Service unavailable</span>`;
+            } else {
+              setStatus("Error: " + event.error);
+            }
           }
         }
       }

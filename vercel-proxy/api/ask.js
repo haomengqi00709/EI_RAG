@@ -44,6 +44,25 @@ export default async function handler(req, res) {
     return res.end();
   }
 
+  // ── Check GPU availability before queuing ─────────────────────────────────
+  try {
+    const healthResp = await fetch(`https://api.runpod.ai/v2/${ENDPOINT}/health`, {
+      headers: { "Authorization": `Bearer ${API_KEY}` },
+    });
+    const health = await healthResp.json();
+    const w = health.workers || {};
+    const available = (w.idle || 0) + (w.initializing || 0) + (w.ready || 0) + (w.running || 0);
+    if (available === 0) {
+      send({
+        type: "error",
+        error: "GPU resources are currently unavailable — all workers are at capacity. Please try again in a few minutes.",
+      });
+      return res.end();
+    }
+  } catch (_) {
+    // If health check fails, proceed anyway and let the job attempt naturally
+  }
+
   send({ type: "progress", message: "Connecting to worker\u2026" });
 
   // ── Poll /stream/{jobId} and forward new chunks as SSE ────────────────────
