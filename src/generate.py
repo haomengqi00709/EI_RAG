@@ -143,7 +143,7 @@ def check_clarification(answer: str, question: str, model) -> tuple[bool, str | 
     try:
         response = model.generate_content(
             CLARIFICATION_PROMPT.format(question=question, answer=answer),
-            generation_config={"response_mime_type": "application/json"},
+            generation_config={"response_mime_type": "application/json", "temperature": 0},
         )
         data = json.loads(response.text)
         needs = bool(data.get("needs_clarification", False))
@@ -246,7 +246,8 @@ def _filter_one(question: str, result: dict, model, rank: int) -> dict:
     )
     try:
         resp   = model.generate_content(
-            FILTER_PROMPT.format(question=question, metadata=meta, chunk_text=body)
+            FILTER_PROMPT.format(question=question, metadata=meta, chunk_text=body),
+            generation_config={"temperature": 0},
         )
         signal = resp.text.strip().upper()
         if signal.startswith("YES"):
@@ -403,7 +404,7 @@ def generate_answer_map_reduce(
     try:
         reduce_prompt = REDUCE_PROMPT.format(question=question, context=context)
         reduce_content = [_image_part(image_b64), reduce_prompt] if image_b64 else reduce_prompt
-        resp         = model.generate_content(reduce_content)
+        resp         = model.generate_content(reduce_content, generation_config={"temperature": 0})
         final_answer = resp.text.strip()
     except Exception as e:
         return {
@@ -430,7 +431,7 @@ def generate_answer_map_reduce(
                 answer=final_answer,
                 context=_build_faithfulness_context(results)[:4000],
             ),
-            generation_config={"response_mime_type": "application/json"},
+            generation_config={"response_mime_type": "application/json", "temperature": 0},
         )
         f_data              = json.loads(f_resp.text)
         faithful            = f_data.get("faithful")
