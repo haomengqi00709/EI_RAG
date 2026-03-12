@@ -215,6 +215,37 @@
     .deep-row:has(input:checked) { color: var(--accent); }
     .deep-row:has(input:checked) strong { font-weight: 700; }
 
+    /* ── Sample questions ─────────────────────────────────────────── */
+    .sample-questions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      gap: 6px;
+    }
+    .sample-label {
+      font-size: 0.75rem;
+      color: var(--muted);
+      white-space: nowrap;
+      padding-top: 5px;
+    }
+    .sample-chip {
+      padding: 5px 12px;
+      border-radius: 99px;
+      border: 1px solid var(--border);
+      background: #f8fafc;
+      font-size: 0.75rem;
+      color: var(--secondary);
+      cursor: pointer;
+      transition: all .15s;
+      text-align: left;
+      line-height: 1.4;
+    }
+    .sample-chip:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: #eff6ff;
+    }
+
     /* ── Status / loading ─────────────────────────────────────────── */
     .status-bar {
       display: flex;
@@ -761,6 +792,13 @@
       <input type="checkbox" id="power-search" />
       <span><strong>Deep Search</strong> — slower but searches twice as many chunks for hard questions</span>
     </label>
+
+    <div class="sample-questions">
+      <span class="sample-label">Try:</span>
+      <button class="sample-chip" onclick="useQuestion(this)">What was the total amount paid out in EI regular benefits during the 2019/2020 fiscal year?</button>
+      <button class="sample-chip" onclick="useQuestion(this)">By what percentage did employment in Canada decline by April 2020 compared with February 2020?</button>
+      <button class="sample-chip" onclick="useQuestion(this)">What is the minimum age requirement and standard educational level usually needed to enter an apprenticeship program in most jurisdictions?</button>
+    </div>
   </div>
 
   <!-- Status bar -->
@@ -845,6 +883,13 @@
   let lastSources   = [];
   let pdfsAvailable = false;
   let attachedImage = null; // base64 string
+
+  // ── Sample question chips ──────────────────────────────────────────────────
+  function useQuestion(btn) {
+    document.getElementById("query").value = btn.textContent.trim();
+    document.getElementById("query").focus();
+    doAsk();
+  }
 
   // ── Image upload ───────────────────────────────────────────────────────────
   function handleImageUpload(event) {
