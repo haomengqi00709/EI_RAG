@@ -380,53 +380,63 @@ def answer():
     province    = filters.get("province", "")
     base_q      = f"{effective_question} {province}".strip() if province else effective_question
 
-    # #MQ: Generate query variants and retrieve merged pool
-    # Power search: double the candidate pool fed to generation
-    retrieve_k = top_k * 2 if power_search else top_k
-    variants = generate_query_variants(base_q, gemini, n=3)
-    results  = retrieve_multi_query(
-        questions=variants,
-        vectors=vectors, bm25=bm25,
-        manifest=manifest, chunks=chunks, top_k=retrieve_k,
-        fiscal_year=fiscal_year, chunk_type=chunk_type,
-        model=embed_model, tokenizer=tokenizer,
-        use_rerank=use_rerank,
-    )
-
-    results = expand_context(results, chunks)   # #3 parent-child
-    results = _deduplicate(results)             # #15 remove near-duplicates
-    results = results[:retrieve_k]
-
-    # #MAP + #RED: map-reduce generation
-    neighbor_radius = 3 if power_search else 1
-    gen = generate_answer_map_reduce(
-        effective_question, results, gemini,
-        chunks=chunks, neighbor_radius=neighbor_radius,
-    )
-    search_stage = 2 if power_search else 1
-
-    # Stage 3 escalation — triggered when Stage 1/2 abstains
-    if gen["abstained"]:
-        print(f"  Stage {search_stage} abstained → escalating to Stage 3…")
-        results_s3 = retrieve_stage3(
+    # Deep search (power_search=True): run Stage 3 directly for all questions
+    # Normal search: Stage 1, then auto-escalate to Stage 3 if abstained
+    if power_search:
+        results = retrieve_stage3(
             question=effective_question,
             vectors=vectors, bm25=bm25,
             manifest=manifest, chunks=chunks,
-            llm_model=gemini,
-            top_k=retrieve_k,
+            llm_model=gemini, top_k=top_k * 2,
             fiscal_year=fiscal_year,
             model=embed_model, tokenizer=tokenizer,
         )
-        if results_s3:
-            results_s3 = _deduplicate(results_s3)
-            gen_s3 = generate_answer_map_reduce(
-                effective_question, results_s3, gemini,
-                chunks=chunks, neighbor_radius=3,
-            )
-            if not gen_s3["abstained"]:
-                gen    = gen_s3
-                results = results_s3
+        results = _deduplicate(results)
+        gen = generate_answer_map_reduce(
+            effective_question, results, gemini,
+            chunks=chunks, neighbor_radius=3,
+        )
         search_stage = 3
+    else:
+        variants = generate_query_variants(base_q, gemini, n=3)
+        results  = retrieve_multi_query(
+            questions=variants,
+            vectors=vectors, bm25=bm25,
+            manifest=manifest, chunks=chunks, top_k=top_k,
+            fiscal_year=fiscal_year, chunk_type=chunk_type,
+            model=embed_model, tokenizer=tokenizer,
+            use_rerank=use_rerank,
+        )
+        results = expand_context(results, chunks)
+        results = _deduplicate(results)
+        results = results[:top_k]
+        gen = generate_answer_map_reduce(
+            effective_question, results, gemini,
+            chunks=chunks, neighbor_radius=1,
+        )
+        search_stage = 1
+
+        # Stage 3 escalation — triggered when Stage 1 abstains
+        if gen["abstained"]:
+            print(f"  Stage 1 abstained → escalating to Stage 3…")
+            results_s3 = retrieve_stage3(
+                question=effective_question,
+                vectors=vectors, bm25=bm25,
+                manifest=manifest, chunks=chunks,
+                llm_model=gemini, top_k=10,
+                fiscal_year=fiscal_year,
+                model=embed_model, tokenizer=tokenizer,
+            )
+            if results_s3:
+                results_s3 = _deduplicate(results_s3)
+                gen_s3 = generate_answer_map_reduce(
+                    effective_question, results_s3, gemini,
+                    chunks=chunks, neighbor_radius=3,
+                )
+                if not gen_s3["abstained"]:
+                    gen     = gen_s3
+                    results = results_s3
+            search_stage = 3
 
     # Build source list for UI
     signal_by_rank = {m["rank"]: m["signal"] for m in gen.get("mapped", [])}
