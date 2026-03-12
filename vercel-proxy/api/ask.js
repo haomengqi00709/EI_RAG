@@ -25,7 +25,17 @@ export default async function handler(req, res) {
   );
 
   const data = await response.json();
-  // RunPod wraps the result in { output: {...} } — unwrap it
-  const result = data.output || data;
+  // RunPod wraps the result in { output: {...} } — unwrap it.
+  // Generator handlers return output as an array of all yielded values;
+  // take the last element which is the final result dict.
+  let result = data.output || data;
+  if (Array.isArray(result)) {
+    result = result[result.length - 1] || {};
+  }
+  // Strip the {type:"result"} wrapper added for streaming compatibility
+  if (result.type === "result") {
+    const { type: _t, ...rest } = result;
+    result = rest;
+  }
   return res.status(response.ok ? 200 : 500).json(result);
 }
