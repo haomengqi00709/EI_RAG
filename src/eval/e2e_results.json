@@ -1,0 +1,1179 @@
+{
+  "n_questions": 60,
+  "top_k": 5,
+  "use_rerank": true,
+  "year_filter": null,
+  "exact_match": 0.617,
+  "semantic_match": 0.65,
+  "faithful_rate": 0.717,
+  "abstention_rate": 0.217,
+  "by_year": {
+    "2019-2020": {
+      "n": 12,
+      "exact_match": 0.75,
+      "semantic_match": 0.75
+    },
+    "2020-2021": {
+      "n": 12,
+      "exact_match": 0.833,
+      "semantic_match": 0.833
+    },
+    "2021-2022": {
+      "n": 12,
+      "exact_match": 0.5,
+      "semantic_match": 0.5
+    },
+    "2022-2023": {
+      "n": 12,
+      "exact_match": 0.417,
+      "semantic_match": 0.5
+    },
+    "2023-2024": {
+      "n": 12,
+      "exact_match": 0.583,
+      "semantic_match": 0.667
+    }
+  },
+  "details": [
+    {
+      "question": "What data sources are used to compile the Employment Insurance benefits data presented in Annex 2?",
+      "ground_truth": "Employment and Social Development Canada, Employment Insurance (EI) administrative data",
+      "fiscal_year": "2019-2020",
+      "chunk_type": "narrative",
+      "generated": "The data sources used to compile the Employment Insurance benefits data presented in Annex 2 are:\n\n*   Employment and Social Development Canada, Employment Insurance (EI) administrative data (10% or 100% sample).\n*   Statistics Canada, Labour Force Survey, Tables 14-10-0017-01 and 14-10-0292-01.\n*   T4 slips with employment income (10% sample).",
+      "exact_match": true,
+      "semantic_match": false,
+      "faithful": true,
+      "abstained": false,
+      "reasoning": "The generated answer provides additional data sources that are not mentioned in the correct answer, implying a different scope of information.",
+      "top_ids": [
+        "20192020_narrative_0048_0036",
+        "20192020_narrative_0406_0327",
+        "20192020_narrative_0518_0359",
+        "20192020_narrative_0501_0355",
+        "20192020_narrative_0095_0078"
+      ]
+    },
+    {
+      "question": "What percentage of all new regular claims established in FY1920 were accounted for by occasional claimants?",
+      "ground_truth": "54.0%",
+      "fiscal_year": "2019-2020",
+      "chunk_type": "narrative",
+      "generated": "",
+      "exact_match": false,
+      "semantic_match": false,
+      "faithful": null,
+      "abstained": true,
+      "reasoning": "",
+      "top_ids": [
+        "20192020_narrative_0071_0058",
+        "20192020_narrative_0070_0057",
+        "20192020_narrative_0123_0103",
+        "20192020_narrative_0188_0164",
+        "20192020_narrative_0064_0052"
+      ]
+    },
+    {
+      "question": "By how many percentage points did the overall employment rate drop in March 2020 due to the COVID-19 crisis?",
+      "ground_truth": "3.3",
+      "fiscal_year": "2019-2020",
+      "chunk_type": "narrative",
+      "generated": "The overall employment rate dropped by 3.3 percentage points in March 2020 due to the COVID-19 crisis.",
+      "exact_match": true,
+      "semantic_match": true,
+      "faithful": true,
+      "abstained": false,
+      "reasoning": "The generated answer conveys the same meaning as the correct answer.",
+      "top_ids": [
+        "20192020_narrative_0025_0012",
+        "20192020_narrative_0026_0013",
+        "20192020_narrative_0033_0020",
+        "20192020_narrative_0027_0014",
+        "20192020_narrative_0024_0011"
+      ]
+    },
+    {
+      "question": "According to the study 'Employment Insurance Benefits and Job Match Quality', what percentage of EI regular claimants with less than 1,050 hours were women from 2002 to 2016?",
+      "ground_truth": "43%",
+      "fiscal_year": "2019-2020",
+      "chunk_type": "narrative",
+      "generated": "According to the study 'Employment Insurance Benefits and Job Match Quality', from 2002 to 2016, 43% of EI regular claimants (with less than 1,050 hours) were women.",
+      "exact_match": true,
+      "semantic_match": true,
+      "faithful": true,
+      "abstained": false,
+      "reasoning": "The generated answer accurately reflects the information provided in the correct answer, conveying the same meaning with minor phrasing differences.",
+      "top_ids": [
+        "20192020_narrative_0558_0381",
+        "20192020_narrative_0553_0376",
+        "20192020_narrative_0068_0055",
+        "20192020_narrative_0073_0059",
+        "20192020_table_0265_0123"
+      ]
+    },
+    {
+      "question": "What was the average weekly benefit rate for family caregiver benefits for adults in FY1920?",
+      "ground_truth": "$449",
+      "fiscal_year": "2019-2020",
+      "chunk_type": "narrative",
+      "generated": "The average weekly benefit rate for family caregiver benefits for adults was $449 in FY1920.",
+      "exact_match": true,
+      "semantic_match": true,
+      "faithful": true,
+      "abstained": false,
+      "reasoning": "The generated answer conveys the same information as the correct answer.",
+      "top_ids": [
+        "20192020_narrative_0162_0140",
+        "20192020_narrative_0052_0039",
+        "20192020_narrative_0048_0036",
+        "20192020_narrative_0089_0073",
+        "20192020_narrative_0053_0040"
+      ]
+    },
+    {
+      "question": "According to the 2018 tax data, what percentage of all firms in 2018 were associated with the establishment of an EI special benefit claim?",
+      "ground_truth": "16.8%",
+      "fiscal_year": "2019-2020",
+      "chunk_type": "narrative",
+      "generated": "According to 2018 tax data, approximately 16.8% of all firms in 2018 were associated with the establishment of an EI special benefit claim.",
+      "exact_match": true,
+      "semantic_match": true,
+      "faithful": true,
+      "abstained": false,
+      "reasoning": "The generated answer conveys the same meaning as the correct answer, accurately stating the percentage of firms associated with EI special benefit claims in 2018.",
+      "top_ids": [
+        "20192020_narrative_0146_0125",
+        "20192020_narrative_0070_0057",
+        "20192020_narrative_0054_0041",
+        "20192020_narrative_0512_0358",
+        "20192020_narrative_0165_0144"
+      ]
+    },
+    {
+      "question": "According to the 2019-2020 Employment Insurance monitoring and assessment report, what was the SD-R figure for the one year pre-program period?",
+      "ground_truth": "$23,138",
+      "fiscal_year": "2019-2020",
+      "chunk_type": "table",
+      "generated": "According to excerpt [1], the SD-R figure for the one year pre-program period is $27,438.\nAccording to excerpt [3], the SD-R figure for the one year pre-program period is $23,138.\nAccording to excerpt [4], the SD-R figure for the one year pre-program period is $27,407.",
+      "exact_match": true,
+      "semantic_match": true,
+      "faithful": false,
+      "abstained": false,
+      "reasoning": "The generated answer includes the correct SD-R figure of $23,138, even though it also mentions other incorrect figures from different excerpts.",
+      "top_ids": [
+        "20192020_table_0321_0151",
+        "20192020_table_0306_0146",
+        "20192020_table_0306_0147",
+        "20192020_table_0305_0145",
+        "20192020_table_0275_0132"
+      ]
+    },
+    {
+      "question": "In what year was the Momentum HR project expanded to include a targeted training and coaching component?",
+      "ground_truth": "2020",
+      "fiscal_year": "2019-2020",
+      "chunk_type": "table",
+      "generated": "The scope of the Momentum HR project was expanded in 2020 to include a targeted training and coaching component.",
+      "exact_match": true,
+      "semantic_match": true,
+      "faithful": true,
+      "abstained": false,
+      "reasoning": "The generated answer accurately states that the Momentum HR project was expanded to include a targeted training and coaching component in 2020, which is the same information conveyed by the correct answer.",
+      "top_ids": [
+        "20192020_table_0206_0076",
+        "20192020_table_0207_0077",
+        "20192020_table_0270_0128",
+        "20192020_narrative_0251_0205",
+        "20192020_table_0265_0124"
+      ]
+    },
+    {
+      "question": "What percentage of completed Employment Insurance sickness claims from those aged 24 years old and under used the maximum period of benefits in the fiscal year 2018-2019?",
+      "ground_truth": "25.8%",
+      "fiscal_year": "2019-2020",
+      "chunk_type": "table",
+      "generated": "In FY1819, 25.8% of completed Employment Insurance sickness claims from those aged 24 years old and under used the maximum period of benefits.",
+      "exact_match": true,
+      "semantic_match": true,
+      "faithful": true,
+      "abstained": false,
+      "reasoning": "The generated answer conveys the same meaning as the correct answer, only worded slightly differently.",
+      "top_ids": [
+        "20192020_table_0157_0052",
+        "20192020_narrative_0155_0134",
+        "20192020_narrative_0154_0133",
+        "20192020_narrative_0148_0128",
+        "20192020_narrative_0094_0077"
+      ]
+    },
+    {
+      "question": "When did the Social Security Tribunal (SST) begin operations?",
+      "ground_truth": "April 1, 2013",
+      "fiscal_year": "2019-2020",
+      "chunk_type": "table",
+      "generated": "The SST began its operations on April 1, 2013.",
+      "exact_match": true,
+      "semantic_match": true,
+      "faithful": true,
+      "abstained": false,
+      "reasoning": "The generated answer accurately states the date the Social Security Tribunal began operations, which is the same as the correct answer.",
+      "top_ids": [
+        "20192020_table_0581_0395",
+        "20192020_table_0581_0392",
+        "20192020_table_0581_0393",
+        "20192020_table_0580_0391",
+        "20192020_table_0569_0348"
+      ]
+    },
+    {
+      "question": "What was the percent change in the number of calls answered by Employment Insurance Specialized Call Centres from fiscal year 2018-2019 to 2019-2020?",
+      "ground_truth": "-5.3%",
+      "fiscal_year": "2019-2020",
+      "chunk_type": "table",
+      "generated": "The number of calls answered by Employment Insurance Specialized Call Centres decreased by 5.3% from fiscal year 2018-2019 to 2019-2020.",
+      "exact_match": false,
+      "semantic_match": true,
+      "faithful": true,
+      "abstained": false,
+      "reasoning": "Both answers indicate a 5.3% decrease in the number of calls answered, conveying the same meaning.",
+      "top_ids": [
+        "20192020_table_0544_0318",
+        "20192020_narrative_0356_0292",
+        "20192020_narrative_0543_0371",
+        "20192020_table_0544_0317",
+        "20192020_narrative_0544_0372"
+      ]
+    },
+    {
+      "question": "What was the average weekly Work-Sharing benefit rate for women in fiscal year 2018-2019?",
+      "ground_truth": "$99",
+      "fiscal_year": "2019-2020",
+      "chunk_type": "table",
+      "generated": "",
+      "exact_match": false,
+      "semantic_match": false,
+      "faithful": null,
+      "abstained": true,
+      "reasoning": "",
+      "top_ids": [
+        "20192020_narrative_0052_0039",
+        "20192020_narrative_0091_0075",
+        "20192020_narrative_0090_0074",
+        "20192020_narrative_0053_0040",
+        "20192020_narrative_0089_0073"
+      ]
+    },
+    {
+      "question": "According to Annex 4.3.3a, what data source is used to track the percentage of EI applications submitted online?",
+      "ground_truth": "Service Canada, Employment Insurance (EI) administrative data",
+      "fiscal_year": "2020-2021",
+      "chunk_type": "narrative",
+      "generated": "According to Annex 4.3.3a, the data source is Service Canada, Employment Insurance (EI) administrative data.",
+      "exact_match": true,
+      "semantic_match": true,
+      "faithful": true,
+      "abstained": false,
+      "reasoning": "The generated answer accurately identifies the data source as Service Canada, Employment Insurance (EI) administrative data, which is the same as the correct answer.",
+      "top_ids": [
+        "20202021_narrative_0458_0305",
+        "20202021_narrative_0454_0301",
+        "20202021_narrative_0455_0302",
+        "20202021_narrative_0055_0041",
+        "20202021_narrative_0379_0281"
+      ]
+    },
+    {
+      "question": "What percentage of ROEs were successfully automated due to Artificial Intelligence?",
+      "ground_truth": "47.9%",
+      "fiscal_year": "2020-2021",
+      "chunk_type": "narrative",
+      "generated": "Artificial Intelligence successfully automated an additional 47.9% of ROEs.",
+      "exact_match": true,
+      "semantic_match": true,
+      "faithful": true,
+      "abstained": false,
+      "reasoning": "The generated answer conveys the same meaning as the correct answer by stating the percentage of ROEs successfully automated by AI.",
+      "top_ids": [
+        "20202021_narrative_0266_0218",
+        "20202021_narrative_0015_0006",
+        "20202021_narrative_0014_0005",
+        "20202021_narrative_0284_0236",
+        "20202021_narrative_0255_0211"
+      ]
+    },
+    {
+      "question": "By the end of fiscal year 2021, by what percentage had the number of self-employed workers in Canada fallen compared to February 2020?",
+      "ground_truth": "5.4%",
+      "fiscal_year": "2020-2021",
+      "chunk_type": "narrative",
+      "generated": "By the end of FY2021, there were 5.4% fewer self-employed workers in Canada than in February 2020.",
+      "exact_match": true,
+      "semantic_match": true,
+      "faithful": true,
+      "abstained": false,
+      "reasoning": "The generated answer accurately reflects the information provided in the correct answer using different phrasing.",
+      "top_ids": [
+        "20202021_narrative_0026_0016",
+        "20202021_narrative_0025_0015",
+        "20202021_narrative_0011_0001",
+        "20202021_narrative_0033_0022",
+        "20202021_narrative_0030_0020"
+      ]
+    },
+    {
+      "question": "By what percentage had employment fallen by April 2020, relative to its February level?",
+      "ground_truth": "15.7%",
+      "fiscal_year": "2020-2021",
+      "chunk_type": "narrative",
+      "generated": "By April 2020, employment had fallen by 15.7% from its February level.",
+      "exact_match": true,
+      "semantic_match": true,
+      "faithful": true,
+      "abstained": false,
+      "reasoning": "The generated answer conveys the same information as the correct answer using slightly different wording.",
+      "top_ids": [
+        "20202021_narrative_0025_0015",
+        "20202021_narrative_0034_0025",
+        "20202021_narrative_0026_0016",
+        "20202021_narrative_0030_0020",
+        "20202021_narrative_0024_0014"
+      ]
+    },
+    {
+      "question": "In what fiscal year did data on family caregiver benefits begin to be included in the analysis on combined claims?",
+      "ground_truth": "FY2021",
+      "fiscal_year": "2020-2021",
+      "chunk_type": "narrative",
+      "generated": "Data on family caregiver benefits began to be included in the analysis on combined claims starting in FY2021.",
+      "exact_match": true,
+      "semantic_match": true,
+      "faithful": true,
+      "abstained": false,
+      "reasoning": "The generated answer and the correct answer both state that family caregiver benefits data started being included in the analysis on combined claims in FY2021.",
+      "top_ids": [
+        "20202021_narrative_0060_0047",
+        "20202021_narrative_0052_0038",
+        "20202021_narrative_0405_0290",
+        "20202021_narrative_0408_0291",
+        "20202021_narrative_0156_0135"
+      ]
+    },
+    {
+      "question": "What was the national average weekly Work-Sharing benefit paid amount in FY2021?",
+      "ground_truth": "$133",
+      "fiscal_year": "2020-2021",
+      "chunk_type": "narrative",
+      "generated": "In FY2021, the national average weekly Work-Sharing benefit paid amount was $133.",
+      "exact_match": true,
+      "semantic_match": true,
+      "faithful": true,
+      "abstained": false,
+      "reasoning": "The generated answer accurately states the national average weekly Work-Sharing benefit paid amount in FY2021 as $133, which is the same information conveyed by the correct answer.",
+      "top_ids": [
+        "20202021_narrative_0134_0113",
+        "20202021_table_0133_0045",
+        "20202021_narrative_0135_0114",
+        "20202021_narrative_0055_0041",
+        "20202021_narrative_0136_0115"
+      ]
+    },
+    {
+      "question": "In 2019-2020, what is the maximum number of benefit weeks for someone with 525-559 hours of insurable employment if the regional unemployment rate is greater than 16%?",
+      "ground_truth": "33",
+      "fiscal_year": "2020-2021",
+      "chunk_type": "table",
+      "generated": "For someone with 525-559 hours of insurable employment, the maximum number of benefit weeks entitlement is 21 if the regional unemployment rate is greater than 16% [1].",
+      "exact_match": false,
+      "semantic_match": false,
+      "faithful": true,
+      "abstained": false,
+      "reasoning": "The generated answer states the maximum number of benefit weeks is 21 while the correct answer states it's 33.",
+      "top_ids": [
+        "20202021_table_0323_0207",
+        "20202021_table_0049_0004",
+        "20202021_narrative_0085_0069",
+        "20202021_table_0057_0008",
+        "20202021_narrative_0082_0066"
+      ]
+    },
+    {
+      "question": "What was the in-person channel satisfaction percentage in fiscal year 2018-2019?",
+      "ground_truth": "80%",
+      "fiscal_year": "2020-2021",
+      "chunk_type": "table",
+      "generated": "The in-person channel satisfaction percentage in fiscal year 2018-2019 was 80%.",
+      "exact_match": true,
+      "semantic_match": true,
+      "faithful": true,
+      "abstained": false,
+      "reasoning": "The generated answer provides the same information as the correct answer.",
+      "top_ids": [
+        "20202021_table_0460_0361",
+        "20202021_narrative_0289_0241",
+        "20202021_table_0460_0362",
+        "20202021_narrative_0288_0240",
+        "20202021_table_0457_0347"
+      ]
+    },
+    {
+      "question": "On what date did the Social Security Tribunal begin its operations?",
+      "ground_truth": "April 1, 2013",
+      "fiscal_year": "2020-2021",
+      "chunk_type": "table",
+      "generated": "The SST began its operations on April 1, 2013.",
+      "exact_match": true,
+      "semantic_match": true,
+      "faithful": true,
+      "abstained": false,
+      "reasoning": "The generated answer accurately states the date the Social Security Tribunal began operations, matching the correct answer's meaning.",
+      "top_ids": [
+        "20202021_table_0499_0418",
+        "20202021_table_0499_0421",
+        "20202021_table_0499_0419",
+        "20202021_table_0499_0420",
+        "20202021_narrative_0295_0251"
+      ]
+    },
+    {
+      "question": "In fiscal year 2020-2021, what percentage of the total employment distribution was attributed to small firms?",
+      "ground_truth": "21.2%",
+      "fiscal_year": "2020-2021",
+      "chunk_type": "table",
+      "generated": "In fiscal year 2020-2021, small firms accounted for 21.2% of the total employment distribution.",
+      "exact_match": true,
+      "semantic_match": true,
+      "faithful": true,
+      "abstained": false,
+      "reasoning": "The generated answer conveys the same information as the correct answer, just rephrased.",
+      "top_ids": [
+        "20202021_table_0073_0013",
+        "20202021_table_0363_0247",
+        "20202021_narrative_0072_0058",
+        "20202021_narrative_0027_0017",
+        "20202021_narrative_0073_0059"
+      ]
+    },
+    {
+      "question": "According to the excerpt, until what date was Pilot Project No. 17 available nationally?",
+      "ground_truth": "August 4, 2012",
+      "fiscal_year": "2020-2021",
+      "chunk_type": "table",
+      "generated": "Pilot Project No. 17 was available nationally until August 4, 2012.",
+      "exact_match": true,
+      "semantic_match": true,
+      "faithful": true,
+      "abstained": false,
+      "reasoning": "The generated answer conveys the same information as the correct answer, just worded as a full sentence.",
+      "top_ids": [
+        "20202021_table_0493_0394",
+        "20202021_table_0492_0393",
+        "20202021_table_0501_0427",
+        "20202021_table_0505_0436",
+        "20202021_table_0494_0395"
+      ]
+    },
+    {
+      "question": "What is the incidence of employment for the Skills Development Active program?",
+      "ground_truth": "7.4 percentage points",
+      "fiscal_year": "2020-2021",
+      "chunk_type": "table",
+      "generated": "The incidence of employment for the Skills Development Active program is: 7.4*** (p.245), 6.7*** (p.246), 5.6*** (p.245), 3.5*** (p.243), and 1.9** (p.244).",
+      "exact_match": false,
+      "semantic_match": false,
+      "faithful": true,
+      "abstained": false,
+      "reasoning": "The generated answer does not convey the same meaning as the correct answer because it lists multiple values, while the correct answer provides only one value.",
+      "top_ids": [
+        "20202021_table_0245_0186",
+        "20202021_table_0246_0189",
+        "20202021_table_0245_0187",
+        "20202021_table_0243_0182",
+        "20202021_table_0244_0183"
+      ]
+    },
+    {
+      "question": "Since what year has Quebec administered its own parental benefits under the Quebec Parental Insurance Plan?",
+      "ground_truth": "2006",
+      "fiscal_year": "2021-2022",
+      "chunk_type": "narrative",
+      "generated": "Since January 2006, Quebec has administered its own parental benefits under the Quebec Parental Insurance Plan.",
+      "exact_match": true,
+      "semantic_match": true,
+      "faithful": true,
+      "abstained": false,
+      "reasoning": "The generated answer provides the same information as the correct answer, specifying the year and adding the month for clarity.",
+      "top_ids": [
+        "20212022_narrative_0384_0277",
+        "20212022_narrative_0396_0281",
+        "20212022_narrative_0166_0135",
+        "20212022_narrative_0393_0280",
+        "20212022_narrative_0387_0278"
+      ]
+    },
+    {
+      "question": "What was the total expenditure on Labour Market Partnerships (LMPs) in FY2122?",
+      "ground_truth": "$292.5 million",
+      "fiscal_year": "2021-2022",
+      "chunk_type": "narrative",
+      "generated": "In FY2122, Labour Market Partnerships (LMPs) expenditures totalled $292.5 million.",
+      "exact_match": true,
+      "semantic_match": true,
+      "faithful": true,
+      "abstained": false,
+      "reasoning": "The generated answer provides the same information as the correct answer, stating the total expenditure on Labour Market Partnerships (LMPs) in FY2122.",
+      "top_ids": [
+        "20212022_narrative_0269_0215",
+        "20212022_narrative_0232_0197",
+        "20212022_narrative_0271_0216",
+        "20212022_table_0246_0142",
+        "20212022_table_0243_0134"
+      ]
+    },
+    {
+      "question": "In the 2021-2022 fiscal year, what was the average number of benefit weeks received by claimants aged 24 years and under while on training?",
+      "ground_truth": "24.9 weeks",
+      "fiscal_year": "2021-2022",
+      "chunk_type": "narrative",
+      "generated": "",
+      "exact_match": false,
+      "semantic_match": false,
+      "faithful": null,
+      "abstained": true,
+      "reasoning": "",
+      "top_ids": [
+        "20212022_narrative_0136_0107",
+        "20212022_narrative_0101_0079",
+        "20212022_narrative_0183_0151",
+        "20212022_narrative_0097_0076",
+        "20212022_narrative_0096_0075"
+      ]
+    },
+    {
+      "question": "In fiscal year 2021-2022, what percentage of calls to the Service Canada Outreach Support Centre (OSC) were answered within 5 minutes?",
+      "ground_truth": "99%",
+      "fiscal_year": "2021-2022",
+      "chunk_type": "narrative",
+      "generated": "",
+      "exact_match": false,
+      "semantic_match": false,
+      "faithful": null,
+      "abstained": true,
+      "reasoning": "",
+      "top_ids": [
+        "20212022_narrative_0291_0231",
+        "20212022_narrative_0283_0225",
+        "20212022_narrative_0297_0236",
+        "20212022_narrative_0479_0311",
+        "20212022_narrative_0285_0227"
+      ]
+    },
+    {
+      "question": "What percentage of clients served in employment benefits programs were women during the 2021-2022 fiscal year?",
+      "ground_truth": "44.9%",
+      "fiscal_year": "2021-2022",
+      "chunk_type": "narrative",
+      "generated": "64.4% of Employment Benefits clients were women in FY2122 (page 248).",
+      "exact_match": false,
+      "semantic_match": false,
+      "faithful": false,
+      "abstained": false,
+      "reasoning": "The generated answer gives the percentage as 64.4%, while the correct answer states it as 44.9%, so they do not convey the same meaning.",
+      "top_ids": [
+        "20212022_narrative_0265_0211",
+        "20212022_narrative_0062_0044",
+        "20212022_table_0465_0346",
+        "20212022_table_0248_0150",
+        "20212022_table_0231_0092"
+      ]
+    },
+    {
+      "question": "During the first half of FY2122, what proportion of claims received the minimum weekly sickness benefit rate?",
+      "ground_truth": "45.7%",
+      "fiscal_year": "2021-2022",
+      "chunk_type": "narrative",
+      "generated": "During the first half of FY2122, 45.7% of sickness claims received the minimum $500 weekly benefit rate.",
+      "exact_match": true,
+      "semantic_match": true,
+      "faithful": true,
+      "abstained": false,
+      "reasoning": "Both answers state that 45.7% of claims received the minimum sickness benefit rate during the first half of FY2122; while the generated answer specifies the rate as $500, this does not alter the meaning as it is additional detail that is likely implied.",
+      "top_ids": [
+        "20212022_narrative_0173_0143",
+        "20212022_narrative_0136_0107",
+        "20212022_narrative_0097_0076",
+        "20212022_narrative_0096_0075",
+        "20212022_narrative_0143_0114"
+      ]
+    },
+    {
+      "question": "What was the job vacancy rate in the Utilities sector during the fourth quarter of FY2021?",
+      "ground_truth": "1.3%",
+      "fiscal_year": "2021-2022",
+      "chunk_type": "table",
+      "generated": "The job vacancy rate in the Utilities sector during the fourth quarter of FY2021 was 1.3%.",
+      "exact_match": true,
+      "semantic_match": true,
+      "faithful": true,
+      "abstained": false,
+      "reasoning": "The generated answer accurately states the job vacancy rate in the Utilities sector during the fourth quarter of FY2021 as 1.3%, which is the same as the correct answer.",
+      "top_ids": [
+        "20212022_table_0038_0002",
+        "20212022_table_0039_0003",
+        "20212022_narrative_0038_0025",
+        "20212022_narrative_0037_0024",
+        "20212022_narrative_0040_0026"
+      ]
+    },
+    {
+      "question": "What was the maximum number of weeks of additional benefits provided by the Temporary Additional Employment Insurance Benefits for Unemployed Long-tenured Workers?",
+      "ground_truth": "20",
+      "fiscal_year": "2021-2022",
+      "chunk_type": "table",
+      "generated": "",
+      "exact_match": false,
+      "semantic_match": false,
+      "faithful": null,
+      "abstained": true,
+      "reasoning": "",
+      "top_ids": [
+        "20212022_table_0508_0398",
+        "20212022_table_0525_0458",
+        "20212022_narrative_0121_0095",
+        "20212022_table_0511_0409",
+        "20212022_narrative_0099_0077"
+      ]
+    },
+    {
+      "question": "Approximately how many Ontarians are expected to be served per year once the new service delivery model is fully implemented?",
+      "ground_truth": "250,000",
+      "fiscal_year": "2021-2022",
+      "chunk_type": "table",
+      "generated": "When fully implemented, the new service delivery model is anticipated to serve about 250,000 Ontarians per year.",
+      "exact_match": true,
+      "semantic_match": true,
+      "faithful": true,
+      "abstained": false,
+      "reasoning": "The generated answer and correct answer both state that approximately 250,000 Ontarians will be served per year.",
+      "top_ids": [
+        "20212022_table_0208_0083",
+        "20212022_narrative_0015_0003",
+        "20212022_narrative_0203_0169",
+        "20212022_narrative_0285_0227",
+        "20212022_narrative_0202_0168"
+      ]
+    },
+    {
+      "question": "According to Annex 7, what year saw the implementation of new regional unemployment rate methodologies in the territories and new EI economic regions in the territories and Prince Edward Island?",
+      "ground_truth": "2014",
+      "fiscal_year": "2021-2022",
+      "chunk_type": "table",
+      "generated": "According to Annex 7, the new regional unemployment rate methodologies in the territories and new EI economic regions in the territories and Prince Edward Island were implemented in 2014 (specifically, October 12, 2014).",
+      "exact_match": true,
+      "semantic_match": true,
+      "faithful": true,
+      "abstained": false,
+      "reasoning": "The generated answer provides the same information as the correct answer, specifying the year 2014 as the implementation date.",
+      "top_ids": [
+        "20212022_table_0519_0430",
+        "20212022_table_0520_0432",
+        "20212022_table_0512_0412",
+        "20212022_table_0532_0474",
+        "20212022_table_0532_0475"
+      ]
+    },
+    {
+      "question": "What was the total number of new claims established for parental extended benefits in fiscal year 2017-2018?",
+      "ground_truth": "8,700",
+      "fiscal_year": "2021-2022",
+      "chunk_type": "table",
+      "generated": "",
+      "exact_match": false,
+      "semantic_match": false,
+      "faithful": null,
+      "abstained": true,
+      "reasoning": "",
+      "top_ids": [
+        "20212022_table_0354_0239",
+        "20212022_table_0358_0243",
+        "20212022_table_0398_0284",
+        "20212022_table_0421_0307",
+        "20212022_narrative_0169_0138"
+      ]
+    },
+    {
+      "question": "How many new EI claims were established in Newfoundland and Labrador during the first half of fiscal year 2021-2022?",
+      "ground_truth": "18,550",
+      "fiscal_year": "2021-2022",
+      "chunk_type": "table",
+      "generated": "There are multiple figures for new EI claims established in Newfoundland and Labrador during the first half of fiscal year 2021-2022, depending on the type of benefit:\n\n*   **Seasonal Regular Claimants:** 1,770 [1]\n*   **Fishing Benefits:** 5,850 [2]\n*   **Parental Standard Benefits:** 1,230 [3]\n*   **Regular Benefits:** 10,990 [4]\n*   **Sickness Benefits:** 4,980 [5]",
+      "exact_match": false,
+      "semantic_match": false,
+      "faithful": true,
+      "abstained": false,
+      "reasoning": "The generated answer breaks down the total number of EI claims into different categories, and the sum of all categories is not equal to the correct answer, making it not convey the same meaning.",
+      "top_ids": [
+        "20212022_table_0366_0251",
+        "20212022_table_0370_0255",
+        "20212022_table_0390_0276",
+        "20212022_table_0358_0243",
+        "20212022_table_0398_0284"
+      ]
+    },
+    {
+      "question": "By what percentage did the number of participating self-employed persons increase from 2021-22 to 2022-23?",
+      "ground_truth": "10.0%",
+      "fiscal_year": "2022-2023",
+      "chunk_type": "narrative",
+      "generated": "The number of participating self-employed persons increased by 10.0% from 2021-22 to 2022-23.",
+      "exact_match": true,
+      "semantic_match": true,
+      "faithful": true,
+      "abstained": false,
+      "reasoning": "The generated answer accurately conveys the information and percentage increase provided in the correct answer.",
+      "top_ids": [
+        "20222023_narrative_0174_0143",
+        "20222023_table_0241_0162",
+        "20222023_narrative_0189_0157",
+        "20222023_table_0118_0042",
+        "20222023_table_0409_0327"
+      ]
+    },
+    {
+      "question": "According to the Labour Force Survey, what percentage of total employment in the Atlantic provinces did seasonal workers account for in 2022-23?",
+      "ground_truth": "4.4%",
+      "fiscal_year": "2022-2023",
+      "chunk_type": "narrative",
+      "generated": "In the Atlantic provinces, seasonal workers accounted for 4.4% of total employment in 2022-23.",
+      "exact_match": true,
+      "semantic_match": true,
+      "faithful": true,
+      "abstained": false,
+      "reasoning": "The generated answer accurately reflects the information provided in the correct answer, stating the percentage of seasonal workers in the Atlantic provinces' total employment for the specified period.",
+      "top_ids": [
+        "20222023_narrative_0105_0080",
+        "20222023_narrative_0102_0078",
+        "20222023_narrative_0103_0079",
+        "20222023_narrative_0118_0092",
+        "20222023_table_0104_0035"
+      ]
+    },
+    {
+      "question": "In the 2022-23 fiscal year, what was the average amount in EI fishing benefits received by fishers who established only one claim?",
+      "ground_truth": "$13,077",
+      "fiscal_year": "2022-2023",
+      "chunk_type": "narrative",
+      "generated": "",
+      "exact_match": false,
+      "semantic_match": false,
+      "faithful": null,
+      "abstained": true,
+      "reasoning": "",
+      "top_ids": [
+        "20222023_narrative_0139_0112",
+        "20222023_narrative_0137_0111",
+        "20222023_table_0139_0054",
+        "20222023_narrative_0136_0110",
+        "20222023_narrative_0055_0036"
+      ]
+    },
+    {
+      "question": "What unemployment rate did Quebec reach in 2022 for individuals aged 15 and over?",
+      "ground_truth": "4.3%",
+      "fiscal_year": "2022-2023",
+      "chunk_type": "narrative",
+      "generated": "In 2022, the unemployment rate for those aged 15 and over in Quebec reached a new low of 4.3%.",
+      "exact_match": true,
+      "semantic_match": true,
+      "faithful": true,
+      "abstained": false,
+      "reasoning": "Both answers state that the unemployment rate for individuals aged 15 and over in Quebec was 4.3% in 2022.",
+      "top_ids": [
+        "20222023_narrative_0224_0173",
+        "20222023_narrative_0027_0014",
+        "20222023_narrative_0030_0017",
+        "20222023_narrative_0187_0155",
+        "20222023_narrative_0024_0011"
+      ]
+    },
+    {
+      "question": "According to 2021 tax data from the Canada Revenue Agency, by what percentage did the number of firms operating in Canada increase compared to 2020?",
+      "ground_truth": "1.3%",
+      "fiscal_year": "2022-2023",
+      "chunk_type": "narrative",
+      "generated": "",
+      "exact_match": false,
+      "semantic_match": false,
+      "faithful": null,
+      "abstained": true,
+      "reasoning": "",
+      "top_ids": [
+        "20222023_narrative_0071_0053",
+        "20222023_narrative_0154_0125",
+        "20222023_narrative_0061_0044",
+        "20222023_narrative_0073_0055",
+        "20222023_narrative_0052_0034"
+      ]
+    },
+    {
+      "question": "How many EI regular claims were established in the first half of the 2022-23 fiscal year?",
+      "ground_truth": "523,100",
+      "fiscal_year": "2022-2023",
+      "chunk_type": "narrative",
+      "generated": "",
+      "exact_match": false,
+      "semantic_match": false,
+      "faithful": null,
+      "abstained": true,
+      "reasoning": "",
+      "top_ids": [
+        "20222023_narrative_0102_0078",
+        "20222023_narrative_0073_0055",
+        "20222023_narrative_0065_0048",
+        "20222023_narrative_0128_0102",
+        "20222023_narrative_0118_0091"
+      ]
+    },
+    {
+      "question": "In what year did the glass recycling co-op mentioned in the report begin operations?",
+      "ground_truth": "1994",
+      "fiscal_year": "2022-2023",
+      "chunk_type": "table",
+      "generated": "The glass recycling co-op began operations in 1994 [1].",
+      "exact_match": true,
+      "semantic_match": true,
+      "faithful": true,
+      "abstained": false,
+      "reasoning": "The generated answer contains the same information as the correct answer, specifying the year the co-op began operations as 1994.",
+      "top_ids": [
+        "20222023_table_0266_0197",
+        "20222023_table_0541_0501",
+        "20222023_table_0553_0540",
+        "20222023_table_0514_0465",
+        "20222023_narrative_0151_0122"
+      ]
+    },
+    {
+      "question": "What was the amount paid in Employment Insurance (Part I of the Employment Insurance Act) support while on training in Alberta during the fiscal year 2022-2023?",
+      "ground_truth": "$1.5 million",
+      "fiscal_year": "2022-2023",
+      "chunk_type": "table",
+      "generated": "The amount paid in Employment Insurance (Part I of the Employment Insurance Act) support while on training in Alberta during the fiscal year 2022-2023 was $1.5 million.",
+      "exact_match": true,
+      "semantic_match": true,
+      "faithful": true,
+      "abstained": false,
+      "reasoning": "The generated answer conveys the same information as the correct answer.",
+      "top_ids": [
+        "20222023_table_0132_0049",
+        "20222023_narrative_0130_0104",
+        "20222023_narrative_0128_0102",
+        "20222023_narrative_0131_0106",
+        "20222023_narrative_0129_0103"
+      ]
+    },
+    {
+      "question": "In fiscal year 2022-2023, what was the year-over-year change in expenditures for Targeted Wage Subsidies?",
+      "ground_truth": "-73.1%",
+      "fiscal_year": "2022-2023",
+      "chunk_type": "table",
+      "generated": "The year-over-year change in expenditures for Targeted Wage Subsidies in fiscal year 2022-2023 was a decrease of 73.1% (excerpt 3) or a decrease of 25.3% (excerpt 5). Excerpt 1 and 2 say there was no change.",
+      "exact_match": false,
+      "semantic_match": false,
+      "faithful": false,
+      "abstained": false,
+      "reasoning": "The generated answer mentions conflicting values while the correct answer provides only one specific value.",
+      "top_ids": [
+        "20222023_table_0241_0162",
+        "20222023_table_0231_0146",
+        "20222023_table_0258_0186",
+        "20222023_narrative_0197_0161",
+        "20222023_table_0268_0202"
+      ]
+    },
+    {
+      "question": "What were the total premium revenues for the Employment Insurance operating account in fiscal year 2021-2022?",
+      "ground_truth": "24,304.7 million dollars",
+      "fiscal_year": "2022-2023",
+      "chunk_type": "table",
+      "generated": "The Employment Insurance operating account revenues for fiscal year 2021-2022 were $24,333.7 million [1].",
+      "exact_match": false,
+      "semantic_match": true,
+      "faithful": true,
+      "abstained": false,
+      "reasoning": "The generated answer conveys the same meaning as the correct answer, with a minor numerical difference that is likely due to rounding.",
+      "top_ids": [
+        "20222023_table_0182_0077",
+        "20222023_narrative_0182_0151",
+        "20222023_table_0201_0097",
+        "20222023_table_0556_0547",
+        "20222023_narrative_0183_0152"
+      ]
+    },
+    {
+      "question": "By what percentage did expenditures for Research & Innovation increase between fiscal year 2021-2022 and 2022-2023?",
+      "ground_truth": "1,818.8%",
+      "fiscal_year": "2022-2023",
+      "chunk_type": "table",
+      "generated": "",
+      "exact_match": false,
+      "semantic_match": false,
+      "faithful": null,
+      "abstained": true,
+      "reasoning": "",
+      "top_ids": [
+        "20222023_narrative_0197_0161",
+        "20222023_narrative_0182_0151",
+        "20222023_table_0182_0077",
+        "20222023_table_0199_0090",
+        "20222023_table_0511_0451"
+      ]
+    },
+    {
+      "question": "What was the total amount, in thousands of dollars, paid out for compassionate care benefits in Manitoba during the 2022-2023 fiscal year?",
+      "ground_truth": "1,482.9",
+      "fiscal_year": "2022-2023",
+      "chunk_type": "table",
+      "generated": "",
+      "exact_match": false,
+      "semantic_match": false,
+      "faithful": null,
+      "abstained": true,
+      "reasoning": "",
+      "top_ids": [
+        "20222023_narrative_0168_0137",
+        "20222023_table_0168_0070",
+        "20222023_narrative_0153_0124",
+        "20222023_narrative_0053_0035",
+        "20222023_narrative_0167_0136"
+      ]
+    },
+    {
+      "question": "What was the average duration of completed claims for the EI family caregiver benefits for adults in 2023-24?",
+      "ground_truth": "10.1 weeks",
+      "fiscal_year": "2023-2024",
+      "chunk_type": "narrative",
+      "generated": "The average duration of completed claims for the EI family caregiver benefits for adults in 2023-24 was 10.1 weeks.",
+      "exact_match": true,
+      "semantic_match": true,
+      "faithful": true,
+      "abstained": false,
+      "reasoning": "The generated answer conveys the same information as the correct answer, just worded as a full sentence.",
+      "top_ids": [
+        "20232024_narrative_0165_0135",
+        "20232024_narrative_0091_0068",
+        "20232024_narrative_0166_0136",
+        "20232024_narrative_0163_0133",
+        "20232024_narrative_0164_0134"
+      ]
+    },
+    {
+      "question": "According to the evaluation, what year was the previous evaluation of the Work-Sharing Program completed?",
+      "ground_truth": "2016",
+      "fiscal_year": "2023-2024",
+      "chunk_type": "narrative",
+      "generated": "According to excerpt [1], the previous evaluation of the Work-Sharing Program was completed in 2016.",
+      "exact_match": true,
+      "semantic_match": true,
+      "faithful": true,
+      "abstained": false,
+      "reasoning": "The generated answer and the correct answer both state that the previous evaluation was completed in 2016.",
+      "top_ids": [
+        "20232024_narrative_0612_0415",
+        "20232024_narrative_0145_0116",
+        "20232024_narrative_0352_0277",
+        "20232024_table_0642_0421",
+        "20232024_narrative_0603_0406"
+      ]
+    },
+    {
+      "question": "By how much did the average nominal weekly earnings increase between the 2022-23 and 2023-24 fiscal years?",
+      "ground_truth": "$45.42",
+      "fiscal_year": "2023-2024",
+      "chunk_type": "narrative",
+      "generated": "",
+      "exact_match": false,
+      "semantic_match": false,
+      "faithful": null,
+      "abstained": true,
+      "reasoning": "",
+      "top_ids": [
+        "20232024_narrative_0084_0064",
+        "20232024_narrative_0051_0034",
+        "20232024_table_0477_0206",
+        "20232024_narrative_0142_0114",
+        "20232024_narrative_0049_0033"
+      ]
+    },
+    {
+      "question": "In what year was the Indigenous Skills and Employment Training (ISET) program introduced?",
+      "ground_truth": "April 2019",
+      "fiscal_year": "2023-2024",
+      "chunk_type": "narrative",
+      "generated": "The Indigenous Skills and Employment Training (ISET) program was introduced in April 2019.",
+      "exact_match": true,
+      "semantic_match": true,
+      "faithful": true,
+      "abstained": false,
+      "reasoning": "The generated answer conveys the same information as the correct answer, stating the program's introduction date.",
+      "top_ids": [
+        "20232024_narrative_0564_0375",
+        "20232024_table_0650_0437",
+        "20232024_narrative_0356_0281",
+        "20232024_table_0625_0369",
+        "20232024_narrative_0357_0282"
+      ]
+    },
+    {
+      "question": "What percentage of participants in Workforce Development programming found employment in 2023-24?",
+      "ground_truth": "47%",
+      "fiscal_year": "2023-2024",
+      "chunk_type": "narrative",
+      "generated": "",
+      "exact_match": false,
+      "semantic_match": false,
+      "faithful": null,
+      "abstained": true,
+      "reasoning": "",
+      "top_ids": [
+        "20232024_narrative_0293_0236",
+        "20232024_narrative_0273_0221",
+        "20232024_narrative_0312_0248",
+        "20232024_narrative_0287_0230",
+        "20232024_narrative_0315_0251"
+      ]
+    },
+    {
+      "question": "How many women participated in the Nunavut Literacy Council's Miqqut program during the fiscal year?",
+      "ground_truth": "30",
+      "fiscal_year": "2023-2024",
+      "chunk_type": "narrative",
+      "generated": "A total of 30 women participated in the two offerings of the Nunavut Literacy Council's Miqqut program during the fiscal year.",
+      "exact_match": true,
+      "semantic_match": true,
+      "faithful": true,
+      "abstained": false,
+      "reasoning": "The generated answer provides the same information as the correct answer, stating that 30 women participated in the Miqqut program.",
+      "top_ids": [
+        "20232024_narrative_0350_0275",
+        "20232024_narrative_0155_0126",
+        "20232024_table_0342_0139",
+        "20232024_narrative_0351_0276",
+        "20232024_narrative_0169_0140"
+      ]
+    },
+    {
+      "question": "What was the average duration of Employment Insurance compassionate care claims in the 2020-21 fiscal year?",
+      "ground_truth": "11.8 weeks",
+      "fiscal_year": "2023-2024",
+      "chunk_type": "table",
+      "generated": "The average duration of Employment Insurance compassionate care claims in the 2020-21 fiscal year was 11.8 weeks.",
+      "exact_match": true,
+      "semantic_match": true,
+      "faithful": true,
+      "abstained": false,
+      "reasoning": "The generated answer is a restatement of the correct answer.",
+      "top_ids": [
+        "20232024_table_0163_0063",
+        "20232024_table_0464_0195",
+        "20232024_narrative_0163_0133",
+        "20232024_table_0593_0317",
+        "20232024_narrative_0162_0132"
+      ]
+    },
+    {
+      "question": "What was the average weekly benefit rate for seasonal regular claimants in Prince Edward Island during 2019-20?",
+      "ground_truth": "$470R",
+      "fiscal_year": "2023-2024",
+      "chunk_type": "table",
+      "generated": "The average weekly benefit rate for seasonal regular claimants in Prince Edward Island during 2019-20 was 470R.",
+      "exact_match": false,
+      "semantic_match": true,
+      "faithful": true,
+      "abstained": false,
+      "reasoning": "The generated answer accurately states the average weekly benefit rate for seasonal regular claimants in Prince Edward Island during 2019-20 as $470R, conveying the same meaning as the correct answer.",
+      "top_ids": [
+        "20232024_table_0473_0202",
+        "20232024_narrative_0472_0345",
+        "20232024_narrative_0474_0346",
+        "20232024_narrative_0084_0064",
+        "20232024_narrative_0047_0031"
+      ]
+    },
+    {
+      "question": "In Prince Edward Island, what was the average number of weeks worked while on EI regular claim in 2023-24 (preliminary data)?",
+      "ground_truth": "13.4",
+      "fiscal_year": "2023-2024",
+      "chunk_type": "table",
+      "generated": "In Prince Edward Island, the average number of weeks worked while on EI regular claim in 2023-24 (preliminary data) was 13.4.",
+      "exact_match": true,
+      "semantic_match": true,
+      "faithful": true,
+      "abstained": false,
+      "reasoning": "The generated answer conveys the same meaning as the correct answer by stating the average number of weeks worked while on EI regular claim in Prince Edward Island in 2023-24 was 13.4.",
+      "top_ids": [
+        "20232024_table_0121_0040",
+        "20232024_narrative_0119_0094",
+        "20232024_narrative_0121_0095",
+        "20232024_narrative_0097_0075",
+        "20232024_narrative_0118_0093"
+      ]
+    },
+    {
+      "question": "What was the total number of Targeted Wage Subsidies in Newfoundland for the fiscal year 2023-2024?",
+      "ground_truth": "696",
+      "fiscal_year": "2023-2024",
+      "chunk_type": "table",
+      "generated": "The number of Targeted Wage Subsidies in Newfoundland and Labrador for the fiscal year 2023-2024 is:\n*   28 (Excerpt 1)\n*   64 (Excerpt 2)\n\nThe number of people receiving targeted wage subsidies in Newfoundland and Labrador for the fiscal year 2023-2024 is:\n*   28 (Excerpt 3)\n\nThe number of beneficiaries was 28 (Excerpt 4)\n\nTargeted Wage Subsidies value of 0 (Excerpt 5)",
+      "exact_match": false,
+      "semantic_match": false,
+      "faithful": false,
+      "abstained": false,
+      "reasoning": "The generated answer provides several different numbers, none of which match the correct answer of 696.",
+      "top_ids": [
+        "20232024_table_0576_0296",
+        "20232024_table_0582_0302",
+        "20232024_table_0584_0304",
+        "20232024_table_0342_0139",
+        "20232024_table_0285_0118"
+      ]
+    },
+    {
+      "question": "By how much did the inventory of claims pending review reduce between March 31, 2023 and March 31, 2024?",
+      "ground_truth": "By half",
+      "fiscal_year": "2023-2024",
+      "chunk_type": "table",
+      "generated": "The inventory of claims pending review reduced by half between March 31, 2023, and March 31, 2024 (Excerpts [1], [2], and [3]).",
+      "exact_match": true,
+      "semantic_match": true,
+      "faithful": true,
+      "abstained": false,
+      "reasoning": "The generated answer accurately conveys the same meaning as the correct answer, indicating a 50% reduction in pending claims.",
+      "top_ids": [
+        "20232024_narrative_0017_0005",
+        "20232024_table_0398_0156",
+        "20232024_narrative_0016_0004",
+        "20232024_narrative_0398_0316",
+        "20232024_narrative_0399_0317"
+      ]
+    },
+    {
+      "question": "How many EI appeals were in progress on March 31, 2023?",
+      "ground_truth": "231",
+      "fiscal_year": "2023-2024",
+      "chunk_type": "table",
+      "generated": "There were 1,836 active EI appeals in progress on March 31, 2023. This included 1,624 regular files and 212 group files.",
+      "exact_match": false,
+      "semantic_match": false,
+      "faithful": true,
+      "abstained": false,
+      "reasoning": "The generated answer provides a significantly different number of EI appeals than the correct answer.",
+      "top_ids": [
+        "20232024_table_0598_0339",
+        "20232024_table_0597_0335",
+        "20232024_narrative_0410_0327",
+        "20232024_narrative_0399_0317",
+        "20232024_narrative_0411_0328"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,602 @@
+[
+  {
+    "chunk_id": "20192020_narrative_0406_0327",
+    "chunk_type": "narrative",
+    "fiscal_year": "2019-2020",
+    "section_breadcrumb": "ANNEX 2 > Employment Insurance Benefits Data Tables",
+    "page": 406,
+    "question": "What data sources are used to compile the Employment Insurance benefits data presented in Annex 2?",
+    "answer": "Employment and Social Development Canada, Employment Insurance (EI) administrative data",
+    "answer_quote": "Source: Employment and Social Development Canada, Employment Insurance (EI) administrative data."
+  },
+  {
+    "chunk_id": "20192020_narrative_0070_0057",
+    "chunk_type": "narrative",
+    "fiscal_year": "2019-2020",
+    "section_breadcrumb": "CHAPTER II > Impact and Effectiveness of Employment Insurance Benefits (Part I of the Employment Insurance Act > 2.2 Employment Insurance regular benefits",
+    "page": 70,
+    "question": "What percentage of all new regular claims established in FY1920 were accounted for by occasional claimants?",
+    "answer": "54.0%",
+    "answer_quote": "Occasional claimants accounted for 54.0% of all new regular claims established in FY1920 but received 51.9% of the total amount paid."
+  },
+  {
+    "chunk_id": "20192020_narrative_0025_0012",
+    "chunk_type": "narrative",
+    "fiscal_year": "2019-2020",
+    "section_breadcrumb": "CHAPTER I > Labour market context > 1.2 The Canadian labour market in FY1920",
+    "page": 25,
+    "question": "By how many percentage points did the overall employment rate drop in March 2020 due to the COVID-19 crisis?",
+    "answer": "3.3",
+    "answer_quote": "However, in response to the COVID-19 crisis, the overall employment rate dropped by 3.3 percentage points in March 2020, to reach 58.5%."
+  },
+  {
+    "chunk_id": "20192020_narrative_0558_0381",
+    "chunk_type": "narrative",
+    "fiscal_year": "2019-2020",
+    "section_breadcrumb": "ANNEX 6 > Key Studies Referenced in the Report",
+    "page": 558,
+    "question": "According to the study 'Employment Insurance Benefits and Job Match Quality', what percentage of EI regular claimants with less than 1,050 hours were women from 2002 to 2016?",
+    "answer": "43%",
+    "answer_quote": "Ineligible laid-off workers are younger compared to EI regular claimants — 38% in the age group 15-24 versus 10%—and more likely to be women (52% versus 43%)."
+  },
+  {
+    "chunk_id": "20192020_narrative_0162_0140",
+    "chunk_type": "narrative",
+    "fiscal_year": "2019-2020",
+    "section_breadcrumb": "CHAPTER II > Impact and Effectiveness of Employment Insurance Benefits (Part I of the Employment Insurance Act > 2.6 Employment Insurance special benefits",
+    "page": 162,
+    "question": "What was the average weekly benefit rate for family caregiver benefits for adults in FY1920?",
+    "answer": "$449",
+    "answer_quote": "The average weekly benefit rate for family caregiver benefits for adults was $449 in FY1920, an increase of 3.0% compared to FY1819."
+  },
+  {
+    "chunk_id": "20192020_narrative_0146_0125",
+    "chunk_type": "narrative",
+    "fiscal_year": "2019-2020",
+    "section_breadcrumb": "CHAPTER II > Impact and Effectiveness of Employment Insurance Benefits (Part I of the Employment Insurance Act > 2.6 Employment Insurance special benefits",
+    "page": 146,
+    "question": "According to the 2018 tax data, what percentage of all firms in 2018 were associated with the establishment of an EI special benefit claim?",
+    "answer": "16.8%",
+    "answer_quote": "According to 2018 tax data, which is the most recent microdata available when writing this report, there were approximately 206,400 firms (16.8% of all firms in 2018) which were associated with the establishment of an EI special benefit claim as a claimant’s current or most recent employer (see Table 41)."
+  },
+  {
+    "chunk_id": "20192020_table_0306_0147",
+    "chunk_type": "table",
+    "fiscal_year": "2019-2020",
+    "section_breadcrumb": "CHAPTER III > Impact and Effectiveness of Employment Benefits and Support Measures (EBSMs Part II of the Employment Insurance Act > 3.3 Evaluation of Employment Benefits and Support Measures (EBSMs) and economic",
+    "page": 306,
+    "question": "According to the 2019-2020 Employment Insurance monitoring and assessment report, what was the SD-R figure for the one year pre-program period?",
+    "answer": "$23,138",
+    "answer_quote": "For the 1 year pre-period, SD-R was $23,138"
+  },
+  {
+    "chunk_id": "20192020_table_0206_0076",
+    "chunk_type": "table",
+    "fiscal_year": "2019-2020",
+    "section_breadcrumb": "CHAPTER III > Impact and Effectiveness of Employment Benefits and Support Measures (EBSMs Part II of the Employment Insurance Act",
+    "page": 206,
+    "question": "In what year was the Momentum HR project expanded to include a targeted training and coaching component?",
+    "answer": "2020",
+    "answer_quote": "The scope of the project was expanded in 2020 to include a targeted training and coaching component."
+  },
+  {
+    "chunk_id": "20192020_table_0157_0052",
+    "chunk_type": "table",
+    "fiscal_year": "2019-2020",
+    "section_breadcrumb": "CHAPTER II > Impact and Effectiveness of Employment Insurance Benefits (Part I of the Employment Insurance Act > 2.6 Employment Insurance special benefits",
+    "page": 157,
+    "question": "What percentage of completed Employment Insurance sickness claims from those aged 24 years old and under used the maximum period of benefits in the fiscal year 2018-2019?",
+    "answer": "25.8%",
+    "answer_quote": "For those 24 years old and under, the share was 25.8% in fiscal year 2018-2019"
+  },
+  {
+    "chunk_id": "20192020_table_0581_0395",
+    "chunk_type": "table",
+    "fiscal_year": "2019-2020",
+    "section_breadcrumb": "ANNEX 7 > Legislative changes to the Employment Insurance program implemented and in force from April 1, 1996 to February 29, 2020",
+    "page": 581,
+    "question": "When did the Social Security Tribunal (SST) begin operations?",
+    "answer": "April 1, 2013",
+    "answer_quote": "The SST began its operations on April 1, 2013."
+  },
+  {
+    "chunk_id": "20192020_table_0544_0318",
+    "chunk_type": "table",
+    "fiscal_year": "2019-2020",
+    "section_breadcrumb": "ANNEX 4 > Key Program Administration Data and Results",
+    "page": 544,
+    "question": "What was the percent change in the number of calls answered by Employment Insurance Specialized Call Centres from fiscal year 2018-2019 to 2019-2020?",
+    "answer": "-5.3%",
+    "answer_quote": "Compared to the previous fiscal year, there was a -5.3% change."
+  },
+  {
+    "chunk_id": "20192020_table_0142_0044",
+    "chunk_type": "table",
+    "fiscal_year": "2019-2020",
+    "section_breadcrumb": "CHAPTER II > Impact and Effectiveness of Employment Insurance Benefits (Part I of the Employment Insurance Act > 2.5 Employment Insurance Work-Sharing benefits",
+    "page": 142,
+    "question": "What was the average weekly Work-Sharing benefit rate for women in fiscal year 2018-2019?",
+    "answer": "$99",
+    "answer_quote": "Women's rate increased from $99 to $125, a rise of 26.3 percent."
+  },
+  {
+    "chunk_id": "20202021_narrative_0458_0305",
+    "chunk_type": "narrative",
+    "fiscal_year": "2020-2021",
+    "section_breadcrumb": "ANNEX 4 > Key Program Administration Data and Results",
+    "page": 458,
+    "question": "According to Annex 4.3.3a, what data source is used to track the percentage of EI applications submitted online?",
+    "answer": "Service Canada, Employment Insurance (EI) administrative data",
+    "answer_quote": "Source: Service Canada, Employment Insurance (EI) administrative data."
+  },
+  {
+    "chunk_id": "20202021_narrative_0266_0218",
+    "chunk_type": "narrative",
+    "fiscal_year": "2020-2021",
+    "section_breadcrumb": "CHAPTER IV > Program Administration and Delivery > 4.2 Transformations to improve the future of service delivery",
+    "page": 266,
+    "question": "What percentage of ROEs were successfully automated due to Artificial Intelligence?",
+    "answer": "47.9%",
+    "answer_quote": "Artificial Intelligence has addressed over 1.25 million comments, successfully automating an additional 47.9% of ROEs."
+  },
+  {
+    "chunk_id": "20202021_narrative_0026_0016",
+    "chunk_type": "narrative",
+    "fiscal_year": "2020-2021",
+    "section_breadcrumb": "CHAPTER I > Labour Market Context > 1.2 The Canadian labour market",
+    "page": 26,
+    "question": "By the end of fiscal year 2021, by what percentage had the number of self-employed workers in Canada fallen compared to February 2020?",
+    "answer": "5.4%",
+    "answer_quote": "By the end of FY2021, there were 5.4% fewer self-employed workers (-155,800) than in February 2020."
+  },
+  {
+    "chunk_id": "20202021_narrative_0025_0015",
+    "chunk_type": "narrative",
+    "fiscal_year": "2020-2021",
+    "section_breadcrumb": "CHAPTER I > Labour Market Context > 1.2 The Canadian labour market",
+    "page": 25,
+    "question": "By what percentage had employment fallen by April 2020, relative to its February level?",
+    "answer": "15.7%",
+    "answer_quote": "by April 2020, employment had fallen by 15.7% from its February level"
+  },
+  {
+    "chunk_id": "20202021_narrative_0062_0049",
+    "chunk_type": "narrative",
+    "fiscal_year": "2020-2021",
+    "section_breadcrumb": "CHAPTER II > Impact and Effectiveness of Employment Insurance Benefits (Part I of the Employment Insurance Act > 2.1 Employment Insurance Benefits Overview",
+    "page": 62,
+    "question": "In what fiscal year did data on family caregiver benefits begin to be included in the analysis on combined claims?",
+    "answer": "FY2021",
+    "answer_quote": "Starting in FY2021, data on family caregiver benefits are included in the analysis on combined claims."
+  },
+  {
+    "chunk_id": "20202021_narrative_0134_0113",
+    "chunk_type": "narrative",
+    "fiscal_year": "2020-2021",
+    "section_breadcrumb": "CHAPTER II > Impact and Effectiveness of Employment Insurance Benefits (Part I of the Employment Insurance Act > 2.5 Employment Insurance Work-Sharing benefits",
+    "page": 134,
+    "question": "What was the national average weekly Work-Sharing benefit paid amount in FY2021?",
+    "answer": "$133",
+    "answer_quote": "In FY2021, the national average weekly Work-Sharing benefit paid amount of $133 remained almost unchanged over the previous year."
+  },
+  {
+    "chunk_id": "20202021_table_0323_0207",
+    "chunk_type": "table",
+    "fiscal_year": "2020-2021",
+    "section_breadcrumb": "ANNEX 2 > Employment Insurance Benefits Data Tables",
+    "page": 323,
+    "question": "In 2019-2020, what is the maximum number of benefit weeks for someone with 525-559 hours of insurable employment if the regional unemployment rate is greater than 16%?",
+    "answer": "33",
+    "answer_quote": "For 525-559 hours, the maximum number of benefit weeks is 0 for unemployment rates of 6% and under, and increases to 21 for more than 10% but not more than 11%, and continues to increase up to 33 for more than 16%."
+  },
+  {
+    "chunk_id": "20202021_table_0460_0361",
+    "chunk_type": "table",
+    "fiscal_year": "2020-2021",
+    "section_breadcrumb": "ANNEX 4 > Key Program Administration Data and Results",
+    "page": 460,
+    "question": "What was the in-person channel satisfaction percentage in fiscal year 2018-2019?",
+    "answer": "80%",
+    "answer_quote": "In-person channel satisfaction was 80% in fiscal year 2017-2018, 80% in fiscal year 2018-2019, 82% in fiscal year 2019-2020, 77% in fiscal year 2020-2021, and showed a -5% change."
+  },
+  {
+    "chunk_id": "20202021_table_0499_0418",
+    "chunk_type": "table",
+    "fiscal_year": "2020-2021",
+    "section_breadcrumb": "ANNEX 7 > Legislative changes to the Employment Insurance program implemented and in force from April 1, 1996 to March 31, 2021",
+    "page": 499,
+    "question": "On what date did the Social Security Tribunal begin its operations?",
+    "answer": "April 1, 2013",
+    "answer_quote": "The Social Security Tribunal began its operations on April 1, 2013."
+  },
+  {
+    "chunk_id": "20202021_table_0073_0013",
+    "chunk_type": "table",
+    "fiscal_year": "2020-2021",
+    "section_breadcrumb": "CHAPTER II > Impact and Effectiveness of Employment Insurance Benefits (Part I of the Employment Insurance Act > 2.2 Employment Insurance regular benefits",
+    "page": 73,
+    "question": "In fiscal year 2020-2021, what percentage of the total employment distribution was attributed to small firms?",
+    "answer": "21.2%",
+    "answer_quote": "For firms of all sizes, the employment distribution was 21.2% for small firms"
+  },
+  {
+    "chunk_id": "20202021_table_0493_0394",
+    "chunk_type": "table",
+    "fiscal_year": "2020-2021",
+    "section_breadcrumb": "ANNEX 7 > Legislative changes to the Employment Insurance program implemented and in force from April 1, 1996 to March 31, 2021",
+    "page": 493,
+    "question": "According to the excerpt, until what date was Pilot Project No. 17 available nationally?",
+    "answer": "August 4, 2012",
+    "answer_quote": "Budget 2011 announced a one-year renewal of the WWC Pilot Project parameters through a new pilot (Pilot Project No. 17), available nationally until August 4, 2012."
+  },
+  {
+    "chunk_id": "20202021_table_0245_0186",
+    "chunk_type": "table",
+    "fiscal_year": "2020-2021",
+    "section_breadcrumb": "CHAPTER III > Impact and Effectiveness of Employment Benefits and Support to Workers and Employers (Part II of the Employment Insurance Act > Annex C LMDA evaluation results",
+    "page": 245,
+    "question": "What is the incidence of employment for the Skills Development Active program?",
+    "answer": "7.4 percentage points",
+    "answer_quote": "The incidence of employment for Skills Development Active is 7.4 percentage points, with a statistical significance indicated by ***."
+  },
+  {
+    "chunk_id": "20212022_narrative_0396_0281",
+    "chunk_type": "narrative",
+    "fiscal_year": "2021-2022",
+    "section_breadcrumb": "ANNEX 2 > Employment Insurance benefits data tables",
+    "page": 396,
+    "question": "Since what year has Quebec administered its own parental benefits under the Quebec Parental Insurance Plan?",
+    "answer": "2006",
+    "answer_quote": "Since January 2006, Quebec has administered its own parental benefits under the Quebec Parental Insurance Plan."
+  },
+  {
+    "chunk_id": "20212022_narrative_0269_0215",
+    "chunk_type": "narrative",
+    "fiscal_year": "2021-2022",
+    "section_breadcrumb": "CHAPTER 3 > Impact and effectiveness of Employment Benefits and support to workers and employers (Part II of the Employment Insurance Act > Annex B National Overview",
+    "page": 269,
+    "question": "What was the total expenditure on Labour Market Partnerships (LMPs) in FY2122?",
+    "answer": "$292.5 million",
+    "answer_quote": "In FY2122, LMPs expenditures totalled $292.5 million"
+  },
+  {
+    "chunk_id": "20212022_narrative_0141_0112",
+    "chunk_type": "narrative",
+    "fiscal_year": "2021-2022",
+    "section_breadcrumb": "CHAPTER II > Impact and effectiveness of Employment Insurance benefits (Part I of the Employment Insurance Act > 2.3 Employment Insurance support while on training",
+    "page": 141,
+    "question": "In the 2021-2022 fiscal year, what was the average number of benefit weeks received by claimants aged 24 years and under while on training?",
+    "answer": "24.9 weeks",
+    "answer_quote": "Claimants aged 24 years and under and those aged between 35 and 44 years received, on average, the highest number of benefits weeks while on training (24.9 weeks and 24.5 weeks, respectively)."
+  },
+  {
+    "chunk_id": "20212022_narrative_0291_0231",
+    "chunk_type": "narrative",
+    "fiscal_year": "2021-2022",
+    "section_breadcrumb": "CHAPTER 4 > Program administration > 4.3 Client experience with the EI Program",
+    "page": 291,
+    "question": "In fiscal year 2021-2022, what percentage of calls to the Service Canada Outreach Support Centre (OSC) were answered within 5 minutes?",
+    "answer": "99%",
+    "answer_quote": "The OSC surpassed its service standard (90% of calls answered within 5 minutes) by answering 99% of calls within 5 minutes."
+  },
+  {
+    "chunk_id": "20212022_narrative_0459_0304",
+    "chunk_type": "narrative",
+    "fiscal_year": "2021-2022",
+    "section_breadcrumb": "ANNEX 3 > Employment benefits and support measures data tables",
+    "page": 459,
+    "question": "What percentage of clients served in employment benefits programs were women during the 2021-2022 fiscal year?",
+    "answer": "44.9%",
+    "answer_quote": "Women 44.9%"
+  },
+  {
+    "chunk_id": "20212022_narrative_0173_0143",
+    "chunk_type": "narrative",
+    "fiscal_year": "2021-2022",
+    "section_breadcrumb": "CHAPTER II > Impact and effectiveness of Employment Insurance benefits (Part I of the Employment Insurance Act > 2.6 Employment Insurance special benefits",
+    "page": 173,
+    "question": "During the first half of FY2122, what proportion of claims received the minimum weekly sickness benefit rate?",
+    "answer": "45.7%",
+    "answer_quote": "The proportion of claims that received the minimum $500 weekly benefit rate was 45.7% during this period."
+  },
+  {
+    "chunk_id": "20212022_table_0039_0003",
+    "chunk_type": "table",
+    "fiscal_year": "2021-2022",
+    "section_breadcrumb": "CHAPTER I > Labour market context > 1.2 The Canadian labour market",
+    "page": 39,
+    "question": "What was the job vacancy rate in the Utilities sector during the fourth quarter of FY2021?",
+    "answer": "1.3%",
+    "answer_quote": "Utilities had a job vacancy rate of 1.6% in the fourth quarter of FY1920, 1.3% in the fourth quarter of FY2021, and 2.2% in the fourth quarter of FY2122, with a change of +0.6 percentage points."
+  },
+  {
+    "chunk_id": "20212022_table_0529_0467",
+    "chunk_type": "table",
+    "fiscal_year": "2021-2022",
+    "section_breadcrumb": "ANNEX 7 > Legislative changes to the Employment Insurance program implemented and in force from April 1, 1996 to December 31, 2022",
+    "page": 529,
+    "question": "What was the maximum number of weeks of additional benefits provided by the Temporary Additional Employment Insurance Benefits for Unemployed Long-tenured Workers?",
+    "answer": "20",
+    "answer_quote": "Provided up to 20 weeks of additional benefits, depending on how long an eligible individual had been working and paying into EI."
+  },
+  {
+    "chunk_id": "20212022_table_0208_0083",
+    "chunk_type": "table",
+    "fiscal_year": "2021-2022",
+    "section_breadcrumb": "CHAPTER 3 > Impact and effectiveness of Employment Benefits and support to workers and employers (Part II of the Employment Insurance Act > 3.2 Provincial and Territorial Activities",
+    "page": 208,
+    "question": "Approximately how many Ontarians are expected to be served per year once the new service delivery model is fully implemented?",
+    "answer": "250,000",
+    "answer_quote": "when fully implemented, it is anticipated to serve about 250,000 Ontarians per year."
+  },
+  {
+    "chunk_id": "20212022_table_0519_0430",
+    "chunk_type": "table",
+    "fiscal_year": "2021-2022",
+    "section_breadcrumb": "ANNEX 7 > Legislative changes to the Employment Insurance program implemented and in force from April 1, 1996 to December 31, 2022",
+    "page": 519,
+    "question": "According to Annex 7, what year saw the implementation of new regional unemployment rate methodologies in the territories and new EI economic regions in the territories and Prince Edward Island?",
+    "answer": "2014",
+    "answer_quote": "The report outlines new regional unemployment rate methodologies in the territories and new Employment Insurance economic regions in the territories and Prince Edward Island for the year 2014."
+  },
+  {
+    "chunk_id": "20212022_table_0388_0274",
+    "chunk_type": "table",
+    "fiscal_year": "2021-2022",
+    "section_breadcrumb": "ANNEX 2 > Employment Insurance benefits data tables",
+    "page": 388,
+    "question": "What was the total number of new claims established for parental extended benefits in fiscal year 2017-2018?",
+    "answer": "8,700",
+    "answer_quote": "For parental extended benefits, in fiscal year 2017-2018, the number of new claims established was 8,700."
+  },
+  {
+    "chunk_id": "20212022_table_0346_0231",
+    "chunk_type": "table",
+    "fiscal_year": "2021-2022",
+    "section_breadcrumb": "ANNEX 2 > Employment Insurance benefits data tables",
+    "page": 346,
+    "question": "How many new EI claims were established in Newfoundland and Labrador during the first half of fiscal year 2021-2022?",
+    "answer": "18,550",
+    "answer_quote": "For the first half of fiscal year 2021-2022, the number was 18,550"
+  },
+  {
+    "chunk_id": "20222023_narrative_0174_0143",
+    "chunk_type": "narrative",
+    "fiscal_year": "2022-2023",
+    "section_breadcrumb": "CHAPTER II > Impact and effectiveness of Employment Insurance benefits (Part I of the Employment Insurance Act > 2.6 Employment Insurance special benefits",
+    "page": 174,
+    "question": "By what percentage did the number of participating self-employed persons increase from 2021-22 to 2022-23?",
+    "answer": "10.0%",
+    "answer_quote": "This represents a growth of 10.0% from 2021-22"
+  },
+  {
+    "chunk_id": "20222023_narrative_0105_0080",
+    "chunk_type": "narrative",
+    "fiscal_year": "2022-2023",
+    "section_breadcrumb": "CHAPTER II > Impact and effectiveness of Employment Insurance benefits (Part I of the Employment Insurance Act > 2.2 Employment Insurance regular benefits",
+    "page": 105,
+    "question": "According to the Labour Force Survey, what percentage of total employment in the Atlantic provinces did seasonal workers account for in 2022-23?",
+    "answer": "4.4%",
+    "answer_quote": "In Atlantic provinces, seasonal workers accounted for 4.4% of total employment, slightly higher than the previous year (4.0%)."
+  },
+  {
+    "chunk_id": "20222023_narrative_0137_0111",
+    "chunk_type": "narrative",
+    "fiscal_year": "2022-2023",
+    "section_breadcrumb": "CHAPTER II > Impact and effectiveness of Employment Insurance benefits (Part I of the Employment Insurance Act > 2.4 Employment Insurance fishing benefits",
+    "page": 137,
+    "question": "In the 2022-23 fiscal year, what was the average amount in EI fishing benefits received by fishers who established only one claim?",
+    "answer": "$13,077",
+    "answer_quote": "In 2022-23, fishers who established a single claim received an average of $13,077 in EI fishing benefits."
+  },
+  {
+    "chunk_id": "20222023_narrative_0224_0173",
+    "chunk_type": "narrative",
+    "fiscal_year": "2022-2023",
+    "section_breadcrumb": "CHAPTER III > Impact and effectiveness of Employment Benefits and support to workers and employers (Part II of the Employment Insurance Act > 3.2 Provincial and Territorial Activities",
+    "page": 224,
+    "question": "What unemployment rate did Quebec reach in 2022 for individuals aged 15 and over?",
+    "answer": "4.3%",
+    "answer_quote": "The unemployment rate for those aged 15 and over in Quebec reached a new low in 2022 at 4.3%, lower than the previous year's unemployment rate of 6.1%."
+  },
+  {
+    "chunk_id": "20222023_narrative_0071_0053",
+    "chunk_type": "narrative",
+    "fiscal_year": "2022-2023",
+    "section_breadcrumb": "CHAPTER II > Impact and effectiveness of Employment Insurance benefits (Part I of the Employment Insurance Act > 2.2 Employment Insurance regular benefits",
+    "page": 71,
+    "question": "According to 2021 tax data from the Canada Revenue Agency, by what percentage did the number of firms operating in Canada increase compared to 2020?",
+    "answer": "1.3%",
+    "answer_quote": "This represents an increase of 1.3% from the total measured in 2020."
+  },
+  {
+    "chunk_id": "20222023_narrative_0065_0048",
+    "chunk_type": "narrative",
+    "fiscal_year": "2022-2023",
+    "section_breadcrumb": "CHAPTER II > Impact and effectiveness of Employment Insurance benefits (Part I of the Employment Insurance Act > 2.2 Employment Insurance regular benefits",
+    "page": 65,
+    "question": "How many EI regular claims were established in the first half of the 2022-23 fiscal year?",
+    "answer": "523,100",
+    "answer_quote": "Of this total, 523,100 claims were established in the first half of the fiscal year"
+  },
+  {
+    "chunk_id": "20222023_table_0266_0197",
+    "chunk_type": "table",
+    "fiscal_year": "2022-2023",
+    "section_breadcrumb": "CHAPTER III > Impact and effectiveness of Employment Benefits and support to workers and employers (Part II of the Employment Insurance Act > 3.2 Provincial and Territorial Activities",
+    "page": 266,
+    "question": "In what year did the glass recycling co-op mentioned in the report begin operations?",
+    "answer": "1994",
+    "answer_quote": "The Wage Subsidy Program was designed for a small Yellowknife business known for being a glass recycler co-op in operation since 1994."
+  },
+  {
+    "chunk_id": "20222023_table_0132_0049",
+    "chunk_type": "table",
+    "fiscal_year": "2022-2023",
+    "section_breadcrumb": "CHAPTER II > Impact and effectiveness of Employment Insurance benefits (Part I of the Employment Insurance Act > 2.3 Employment Insurance support while on training",
+    "page": 132,
+    "question": "What was the amount paid in Employment Insurance (Part I of the Employment Insurance Act) support while on training in Alberta during the fiscal year 2022-2023?",
+    "answer": "$1.5 million",
+    "answer_quote": "In Alberta, the number of new claims was 132 in 2021-2022 and 115 in 2022-2023, with payments of $2.2 million and $1.5 million."
+  },
+  {
+    "chunk_id": "20222023_table_0258_0186",
+    "chunk_type": "table",
+    "fiscal_year": "2022-2023",
+    "section_breadcrumb": "CHAPTER III > Impact and effectiveness of Employment Benefits and support to workers and employers (Part II of the Employment Insurance Act > 3.2 Provincial and Territorial Activities",
+    "page": 258,
+    "question": "In fiscal year 2022-2023, what was the year-over-year change in expenditures for Targeted Wage Subsidies?",
+    "answer": "-73.1%",
+    "answer_quote": "Targeted Wage Subsidies had 0 services in the fiscal year 2022-2023 with no year-over-year change, and expenditures of $112,148, representing a year-over-year change of -73.1%."
+  },
+  {
+    "chunk_id": "20222023_table_0518_0478",
+    "chunk_type": "table",
+    "fiscal_year": "2022-2023",
+    "section_breadcrumb": "ANNEX 5 > Employment Insurance financial information",
+    "page": 518,
+    "question": "What were the total premium revenues for the Employment Insurance operating account in fiscal year 2021-2022?",
+    "answer": "24,304.7 million dollars",
+    "answer_quote": "Premiums for these years were 22,880.9 million dollars, 24,304.7 million dollars, and 27,422.1 million dollars."
+  },
+  {
+    "chunk_id": "20222023_table_0253_0179",
+    "chunk_type": "table",
+    "fiscal_year": "2022-2023",
+    "section_breadcrumb": "CHAPTER III > Impact and effectiveness of Employment Benefits and support to workers and employers (Part II of the Employment Insurance Act > 3.2 Provincial and Territorial Activities",
+    "page": 253,
+    "question": "By what percentage did expenditures for Research & Innovation increase between fiscal year 2021-2022 and 2022-2023?",
+    "answer": "1,818.8%",
+    "answer_quote": "Expenditures for Research & Innovation were $115,298,091, reflecting a year-over-year increase of 1,818.8%."
+  },
+  {
+    "chunk_id": "20222023_table_0432_0350",
+    "chunk_type": "table",
+    "fiscal_year": "2022-2023",
+    "section_breadcrumb": "ANNEX 2 > Employment Insurance benefits data tables",
+    "page": 432,
+    "question": "What was the total amount, in thousands of dollars, paid out for compassionate care benefits in Manitoba during the 2022-2023 fiscal year?",
+    "answer": "1,482.9",
+    "answer_quote": "In Manitoba, the amount paid was $1,482.9 thousand."
+  },
+  {
+    "chunk_id": "20232024_narrative_0165_0135",
+    "chunk_type": "narrative",
+    "fiscal_year": "2023-2024",
+    "section_breadcrumb": "CHAPTER II > Impact and effectiveness of Employment Insurance benefits (Part I of the Employment Insurance Act > 2.6 Employment Insurance special benefits",
+    "page": 165,
+    "question": "What was the average duration of completed claims for the EI family caregiver benefits for adults in 2023-24?",
+    "answer": "10.1 weeks",
+    "answer_quote": "The average duration of completed claims for the EI family caregiver benefits for adults in 2023-24 was 10.1 weeks."
+  },
+  {
+    "chunk_id": "20232024_narrative_0612_0415",
+    "chunk_type": "narrative",
+    "fiscal_year": "2023-2024",
+    "section_breadcrumb": "ANNEX 6 > Key studies referenced in the report > Evaluation of the Work-Sharing Program",
+    "page": 612,
+    "question": "According to the evaluation, what year was the previous evaluation of the Work-Sharing Program completed?",
+    "answer": "2016",
+    "answer_quote": "This evaluation builds upon the previous evaluation of the Work-Sharing Program completed in 2016."
+  },
+  {
+    "chunk_id": "20232024_narrative_0035_0022",
+    "chunk_type": "narrative",
+    "fiscal_year": "2023-2024",
+    "section_breadcrumb": "CHAPTER I > Labour market context > 1.3 Canada’s regional labour market",
+    "page": 35,
+    "question": "By how much did the average nominal weekly earnings increase between the 2022-23 and 2023-24 fiscal years?",
+    "answer": "$45.42",
+    "answer_quote": "the average nominal weekly earnings increased by 3.9%, rising from $1,171 in 2022-23 to $1,217 in 2023-24, which is equivalent to a $45.42 increase in weekly earnings"
+  },
+  {
+    "chunk_id": "20232024_narrative_0564_0375",
+    "chunk_type": "narrative",
+    "fiscal_year": "2023-2024",
+    "section_breadcrumb": "ANNEX III > Employment benefits and support measures data tables > Annex 3.1",
+    "page": 564,
+    "question": "In what year was the Indigenous Skills and Employment Training (ISET) program introduced?",
+    "answer": "April 2019",
+    "answer_quote": "ISET was introduced in April 2019 as the successor to the Aboriginal Skills and Employment Training Strategy."
+  },
+  {
+    "chunk_id": "20232024_narrative_0293_0236",
+    "chunk_type": "narrative",
+    "fiscal_year": "2023-2024",
+    "section_breadcrumb": "CHAPTER III > Impact and effectiveness of Employment Benefits and Support Measures to workers and employers (Part II of the Employment Insurance Act > 3.2 Provincial and Territorial activities",
+    "page": 293,
+    "question": "What percentage of participants in Workforce Development programming found employment in 2023-24?",
+    "answer": "47%",
+    "answer_quote": "In 2023-24, 15,605 job seekers participated in WFD programming with 47% of participants finding employment and 9% going on to further education/training."
+  },
+  {
+    "chunk_id": "20232024_narrative_0350_0275",
+    "chunk_type": "narrative",
+    "fiscal_year": "2023-2024",
+    "section_breadcrumb": "CHAPTER III > Impact and effectiveness of Employment Benefits and Support Measures to workers and employers (Part II of the Employment Insurance Act > 3.2 Provincial and Territorial activities",
+    "page": 350,
+    "question": "How many women participated in the Nunavut Literacy Council's Miqqut program during the fiscal year?",
+    "answer": "30",
+    "answer_quote": "A total of 30 women participated in the two offerings of the program."
+  },
+  {
+    "chunk_id": "20232024_table_0163_0063",
+    "chunk_type": "table",
+    "fiscal_year": "2023-2024",
+    "section_breadcrumb": "CHAPTER II > Impact and effectiveness of Employment Insurance benefits (Part I of the Employment Insurance Act > 2.6 Employment Insurance special benefits",
+    "page": 163,
+    "question": "What was the average duration of Employment Insurance compassionate care claims in the 2020-21 fiscal year?",
+    "answer": "11.8 weeks",
+    "answer_quote": "In the 2020-21 fiscal year, the average duration increased to 11.8 weeks."
+  },
+  {
+    "chunk_id": "20232024_table_0473_0202",
+    "chunk_type": "table",
+    "fiscal_year": "2023-2024",
+    "section_breadcrumb": "ANNEX 2 > Employment Insurance benefits data tables",
+    "page": 473,
+    "question": "What was the average weekly benefit rate for seasonal regular claimants in Prince Edward Island during 2019-20?",
+    "answer": "$470R",
+    "answer_quote": "For Prince Edward Island, the average weekly benefit rate was $470R in 2019-20"
+  },
+  {
+    "chunk_id": "20232024_table_0121_0040",
+    "chunk_type": "table",
+    "fiscal_year": "2023-2024",
+    "section_breadcrumb": "CHAPTER II > Impact and effectiveness of Employment Insurance benefits (Part I of the Employment Insurance Act > 2.2 Employment Insurance regular benefits",
+    "page": 121,
+    "question": "In Prince Edward Island, what was the average number of weeks worked while on EI regular claim in 2023-24 (preliminary data)?",
+    "answer": "13.4",
+    "answer_quote": "In Prince Edward Island, it was 12.2 in 2022-23R and 13.4 in 2023-24P, with a change of +1.2 weeks."
+  },
+  {
+    "chunk_id": "20232024_table_0575_0295",
+    "chunk_type": "table",
+    "fiscal_year": "2023-2024",
+    "section_breadcrumb": "ANNEX III > Employment benefits and support measures data tables > Annex 3.9",
+    "page": 575,
+    "question": "What was the total number of Targeted Wage Subsidies in Newfoundland for the fiscal year 2023-2024?",
+    "answer": "696",
+    "answer_quote": "The Targeted Wage Subsidies for fiscal year 2023-2024 are 696 in Newfoundland"
+  },
+  {
+    "chunk_id": "20232024_table_0398_0156",
+    "chunk_type": "table",
+    "fiscal_year": "2023-2024",
+    "section_breadcrumb": "CHAPTER IV > Program administration > 4.4 Application intake and claim processing",
+    "page": 398,
+    "question": "By how much did the inventory of claims pending review reduce between March 31, 2023 and March 31, 2024?",
+    "answer": "By half",
+    "answer_quote": "The result was that the inventory of claims pending review reduced by half between March 31, 2023, and March 31, 2024."
+  },
+  {
+    "chunk_id": "20232024_table_0598_0339",
+    "chunk_type": "table",
+    "fiscal_year": "2023-2024",
+    "section_breadcrumb": "Annex 4 > Program administration",
+    "page": 598,
+    "question": "How many EI appeals were in progress on March 31, 2023?",
+    "answer": "231",
+    "answer_quote": "Appeals in progress on March 31, 2023 were 231 regular files and 0 group files, totaling 231 files."
+  }
+]

@@ -1,0 +1,798 @@
+{
+  "n_questions": 60,
+  "recall": {
+    "@1": 0.033,
+    "@3": 0.067,
+    "@5": 0.067,
+    "@10": 0.067
+  },
+  "mrr": 0.047,
+  "misses": [
+    {
+      "question": "What data sources are used to compile the Employment Insurance benefits data presented in Annex 2?",
+      "target_id": "20192020_narrative_0406_0327",
+      "chunk_type": "narrative",
+      "fiscal_year": "2019-2020",
+      "rank": null,
+      "top5_ids": [
+        "20192020_table_0202_0074",
+        "20192020_table_0275_0131",
+        "20192020_narrative_0188_0164",
+        "20192020_narrative_0052_0039",
+        "20192020_table_0202_0073"
+      ]
+    },
+    {
+      "question": "What percentage of all new regular claims established in FY1920 were accounted for by occasional claimants?",
+      "target_id": "20192020_narrative_0070_0057",
+      "chunk_type": "narrative",
+      "fiscal_year": "2019-2020",
+      "rank": null,
+      "top5_ids": [
+        "20192020_narrative_0188_0164",
+        "20192020_table_0065_0011",
+        "20192020_narrative_0127_0107",
+        "20192020_table_0119_0034",
+        "20192020_table_0106_0028"
+      ]
+    },
+    {
+      "question": "By how many percentage points did the overall employment rate drop in March 2020 due to the COVID-19 crisis?",
+      "target_id": "20192020_narrative_0025_0012",
+      "chunk_type": "narrative",
+      "fiscal_year": "2019-2020",
+      "rank": null,
+      "top5_ids": [
+        "20192020_table_0270_0128",
+        "20192020_table_0275_0132",
+        "20192020_table_0410_0183",
+        "20192020_table_0265_0124",
+        "20192020_table_0569_0348"
+      ]
+    },
+    {
+      "question": "According to the study 'Employment Insurance Benefits and Job Match Quality', what percentage of EI regular claimants with less than 1,050 hours were women from 2002 to 2016?",
+      "target_id": "20192020_narrative_0558_0381",
+      "chunk_type": "narrative",
+      "fiscal_year": "2019-2020",
+      "rank": null,
+      "top5_ids": [
+        "20192020_table_0275_0131",
+        "20192020_table_0222_0087",
+        "20192020_table_0265_0123",
+        "20192020_table_0208_0078",
+        "20192020_narrative_0127_0107"
+      ]
+    },
+    {
+      "question": "According to the 2018 tax data, what percentage of all firms in 2018 were associated with the establishment of an EI special benefit claim?",
+      "target_id": "20192020_narrative_0146_0125",
+      "chunk_type": "narrative",
+      "fiscal_year": "2019-2020",
+      "rank": null,
+      "top5_ids": [
+        "20192020_narrative_0553_0376",
+        "20192020_narrative_0127_0107",
+        "20192020_narrative_0071_0058",
+        "20192020_table_0146_0046",
+        "20192020_narrative_0048_0036"
+      ]
+    },
+    {
+      "question": "According to the 2019-2020 Employment Insurance monitoring and assessment report, what was the SD-R figure for the one year pre-program period?",
+      "target_id": "20192020_table_0306_0147",
+      "chunk_type": "table",
+      "fiscal_year": "2019-2020",
+      "rank": null,
+      "top5_ids": [
+        "20192020_table_0202_0074",
+        "20192020_table_0275_0132",
+        "20192020_table_0202_0073",
+        "20192020_table_0270_0128",
+        "20192020_table_0256_0116"
+      ]
+    },
+    {
+      "question": "In what year was the Momentum HR project expanded to include a targeted training and coaching component?",
+      "target_id": "20192020_table_0206_0076",
+      "chunk_type": "table",
+      "fiscal_year": "2019-2020",
+      "rank": null,
+      "top5_ids": [
+        "20192020_table_0275_0132",
+        "20192020_table_0265_0124",
+        "20192020_table_0270_0128",
+        "20192020_table_0410_0183",
+        "20192020_narrative_0127_0107"
+      ]
+    },
+    {
+      "question": "What percentage of completed Employment Insurance sickness claims from those aged 24 years old and under used the maximum period of benefits in the fiscal year 2018-2019?",
+      "target_id": "20192020_table_0157_0052",
+      "chunk_type": "table",
+      "fiscal_year": "2019-2020",
+      "rank": null,
+      "top5_ids": [
+        "20192020_table_0265_0123",
+        "20192020_table_0208_0078",
+        "20192020_table_0275_0131",
+        "20192020_table_0222_0087",
+        "20192020_narrative_0188_0164"
+      ]
+    },
+    {
+      "question": "When did the Social Security Tribunal (SST) begin operations?",
+      "target_id": "20192020_table_0581_0395",
+      "chunk_type": "table",
+      "fiscal_year": "2019-2020",
+      "rank": null,
+      "top5_ids": [
+        "20192020_table_0270_0128",
+        "20192020_table_0410_0183",
+        "20192020_table_0275_0132",
+        "20192020_table_0265_0124",
+        "20192020_table_0569_0348"
+      ]
+    },
+    {
+      "question": "What was the average weekly Work-Sharing benefit rate for women in fiscal year 2018-2019?",
+      "target_id": "20192020_table_0142_0044",
+      "chunk_type": "table",
+      "fiscal_year": "2019-2020",
+      "rank": null,
+      "top5_ids": [
+        "20192020_table_0270_0128",
+        "20192020_narrative_0127_0107",
+        "20192020_table_0275_0132",
+        "20192020_table_0265_0124",
+        "20192020_table_0571_0356"
+      ]
+    },
+    {
+      "question": "According to Annex 4.3.3a, what data source is used to track the percentage of EI applications submitted online?",
+      "target_id": "20202021_narrative_0458_0305",
+      "chunk_type": "narrative",
+      "fiscal_year": "2020-2021",
+      "rank": null,
+      "top5_ids": [
+        "20202021_table_0487_0381",
+        "20202021_table_0499_0419",
+        "20202021_table_0487_0380",
+        "20202021_table_0461_0363",
+        "20202021_table_0206_0111"
+      ]
+    },
+    {
+      "question": "What percentage of ROEs were successfully automated due to Artificial Intelligence?",
+      "target_id": "20202021_narrative_0266_0218",
+      "chunk_type": "narrative",
+      "fiscal_year": "2020-2021",
+      "rank": null,
+      "top5_ids": [
+        "20202021_table_0201_0091",
+        "20202021_table_0456_0341",
+        "20202021_table_0455_0337",
+        "20202021_table_0208_0115",
+        "20202021_table_0229_0171"
+      ]
+    },
+    {
+      "question": "By the end of fiscal year 2021, by what percentage had the number of self-employed workers in Canada fallen compared to February 2020?",
+      "target_id": "20202021_narrative_0026_0016",
+      "chunk_type": "narrative",
+      "fiscal_year": "2020-2021",
+      "rank": null,
+      "top5_ids": [
+        "20202021_table_0223_0155",
+        "20202021_table_0212_0122",
+        "20202021_table_0220_0145",
+        "20202021_table_0227_0168",
+        "20202021_table_0225_0163"
+      ]
+    },
+    {
+      "question": "By what percentage had employment fallen by April 2020, relative to its February level?",
+      "target_id": "20202021_narrative_0025_0015",
+      "chunk_type": "narrative",
+      "fiscal_year": "2020-2021",
+      "rank": null,
+      "top5_ids": [
+        "20202021_table_0224_0157",
+        "20202021_table_0208_0115",
+        "20202021_table_0198_0080",
+        "20202021_table_0216_0128",
+        "20202021_table_0219_0141"
+      ]
+    },
+    {
+      "question": "In what fiscal year did data on family caregiver benefits begin to be included in the analysis on combined claims?",
+      "target_id": "20202021_narrative_0062_0049",
+      "chunk_type": "narrative",
+      "fiscal_year": "2020-2021",
+      "rank": null,
+      "top5_ids": [
+        "20202021_table_0201_0091",
+        "20202021_narrative_0049_0036",
+        "20202021_table_0219_0141",
+        "20202021_table_0208_0115",
+        "20202021_table_0085_0019"
+      ]
+    },
+    {
+      "question": "What was the national average weekly Work-Sharing benefit paid amount in FY2021?",
+      "target_id": "20202021_narrative_0134_0113",
+      "chunk_type": "narrative",
+      "fiscal_year": "2020-2021",
+      "rank": null,
+      "top5_ids": [
+        "20202021_table_0218_0139",
+        "20202021_table_0085_0019",
+        "20202021_table_0219_0141",
+        "20202021_narrative_0133_0112",
+        "20202021_table_0245_0185"
+      ]
+    },
+    {
+      "question": "In 2019-2020, what is the maximum number of benefit weeks for someone with 525-559 hours of insurable employment if the regional unemployment rate is greater than 16%?",
+      "target_id": "20202021_table_0323_0207",
+      "chunk_type": "table",
+      "fiscal_year": "2020-2021",
+      "rank": null,
+      "top5_ids": [
+        "20202021_table_0085_0019",
+        "20202021_table_0091_0022",
+        "20202021_table_0206_0110",
+        "20202021_narrative_0208_0179",
+        "20202021_table_0218_0139"
+      ]
+    },
+    {
+      "question": "What was the in-person channel satisfaction percentage in fiscal year 2018-2019?",
+      "target_id": "20202021_table_0460_0361",
+      "chunk_type": "table",
+      "fiscal_year": "2020-2021",
+      "rank": null,
+      "top5_ids": [
+        "20202021_table_0201_0091",
+        "20202021_table_0456_0341",
+        "20202021_table_0208_0115",
+        "20202021_table_0455_0337",
+        "20202021_table_0224_0157"
+      ]
+    },
+    {
+      "question": "On what date did the Social Security Tribunal begin its operations?",
+      "target_id": "20202021_table_0499_0418",
+      "chunk_type": "table",
+      "fiscal_year": "2020-2021",
+      "rank": null,
+      "top5_ids": [
+        "20202021_table_0201_0091",
+        "20202021_table_0456_0341",
+        "20202021_table_0455_0337",
+        "20202021_table_0208_0115",
+        "20202021_table_0224_0157"
+      ]
+    },
+    {
+      "question": "In fiscal year 2020-2021, what percentage of the total employment distribution was attributed to small firms?",
+      "target_id": "20202021_table_0073_0013",
+      "chunk_type": "table",
+      "fiscal_year": "2020-2021",
+      "rank": null,
+      "top5_ids": [
+        "20202021_table_0201_0091",
+        "20202021_table_0305_0194",
+        "20202021_table_0456_0341",
+        "20202021_table_0455_0337",
+        "20202021_narrative_0049_0036"
+      ]
+    },
+    {
+      "question": "According to the excerpt, until what date was Pilot Project No. 17 available nationally?",
+      "target_id": "20202021_table_0493_0394",
+      "chunk_type": "table",
+      "fiscal_year": "2020-2021",
+      "rank": null,
+      "top5_ids": [
+        "20202021_table_0502_0428",
+        "20202021_table_0219_0141",
+        "20202021_table_0206_0110",
+        "20202021_narrative_0229_0193",
+        "20202021_table_0218_0139"
+      ]
+    },
+    {
+      "question": "What is the incidence of employment for the Skills Development Active program?",
+      "target_id": "20202021_table_0245_0186",
+      "chunk_type": "table",
+      "fiscal_year": "2020-2021",
+      "rank": null,
+      "top5_ids": [
+        "20202021_table_0201_0091",
+        "20202021_table_0305_0194",
+        "20202021_table_0456_0341",
+        "20202021_table_0455_0337",
+        "20202021_table_0502_0428"
+      ]
+    },
+    {
+      "question": "Since what year has Quebec administered its own parental benefits under the Quebec Parental Insurance Plan?",
+      "target_id": "20212022_narrative_0396_0281",
+      "chunk_type": "narrative",
+      "fiscal_year": "2021-2022",
+      "rank": null,
+      "top5_ids": [
+        "20212022_table_0512_0412",
+        "20212022_narrative_0190_0159",
+        "20212022_table_0532_0475",
+        "20212022_table_0530_0469",
+        "20212022_narrative_0387_0278"
+      ]
+    },
+    {
+      "question": "What was the total expenditure on Labour Market Partnerships (LMPs) in FY2122?",
+      "target_id": "20212022_narrative_0269_0215",
+      "chunk_type": "narrative",
+      "fiscal_year": "2021-2022",
+      "rank": null,
+      "top5_ids": [
+        "20212022_table_0246_0142",
+        "20212022_table_0241_0126",
+        "20212022_table_0243_0134",
+        "20212022_table_0257_0182",
+        "20212022_table_0254_0169"
+      ]
+    },
+    {
+      "question": "In the 2021-2022 fiscal year, what was the average number of benefit weeks received by claimants aged 24 years and under while on training?",
+      "target_id": "20212022_narrative_0141_0112",
+      "chunk_type": "narrative",
+      "fiscal_year": "2021-2022",
+      "rank": null,
+      "top5_ids": [
+        "20212022_table_0508_0398",
+        "20212022_narrative_0158_0128",
+        "20212022_table_0512_0412",
+        "20212022_narrative_0177_0146",
+        "20212022_table_0532_0475"
+      ]
+    },
+    {
+      "question": "In fiscal year 2021-2022, what percentage of calls to the Service Canada Outreach Support Centre (OSC) were answered within 5 minutes?",
+      "target_id": "20212022_narrative_0291_0231",
+      "chunk_type": "narrative",
+      "fiscal_year": "2021-2022",
+      "rank": null,
+      "top5_ids": [
+        "20212022_table_0512_0412",
+        "20212022_narrative_0157_0127",
+        "20212022_table_0253_0167",
+        "20212022_table_0243_0135",
+        "20212022_table_0270_0204"
+      ]
+    },
+    {
+      "question": "What percentage of clients served in employment benefits programs were women during the 2021-2022 fiscal year?",
+      "target_id": "20212022_narrative_0459_0304",
+      "chunk_type": "narrative",
+      "fiscal_year": "2021-2022",
+      "rank": null,
+      "top5_ids": [
+        "20212022_table_0231_0092",
+        "20212022_table_0248_0150",
+        "20212022_table_0507_0395",
+        "20212022_table_0253_0167",
+        "20212022_table_0480_0366"
+      ]
+    },
+    {
+      "question": "During the first half of FY2122, what proportion of claims received the minimum weekly sickness benefit rate?",
+      "target_id": "20212022_narrative_0173_0143",
+      "chunk_type": "narrative",
+      "fiscal_year": "2021-2022",
+      "rank": null,
+      "top5_ids": [
+        "20212022_narrative_0157_0127",
+        "20212022_table_0532_0475",
+        "20212022_narrative_0177_0146",
+        "20212022_table_0512_0412",
+        "20212022_narrative_0363_0271"
+      ]
+    },
+    {
+      "question": "What was the job vacancy rate in the Utilities sector during the fourth quarter of FY2021?",
+      "target_id": "20212022_table_0039_0003",
+      "chunk_type": "table",
+      "fiscal_year": "2021-2022",
+      "rank": null,
+      "top5_ids": [
+        "20212022_table_0260_0192",
+        "20212022_narrative_0020_0008",
+        "20212022_table_0246_0142",
+        "20212022_table_0254_0169",
+        "20212022_table_0257_0182"
+      ]
+    },
+    {
+      "question": "What was the maximum number of weeks of additional benefits provided by the Temporary Additional Employment Insurance Benefits for Unemployed Long-tenured Workers?",
+      "target_id": "20212022_table_0529_0467",
+      "chunk_type": "table",
+      "fiscal_year": "2021-2022",
+      "rank": null,
+      "top5_ids": [
+        "20212022_table_0532_0475",
+        "20212022_table_0511_0409",
+        "20212022_narrative_0100_0078",
+        "20212022_table_0532_0474",
+        "20212022_narrative_0116_0091"
+      ]
+    },
+    {
+      "question": "According to Annex 7, what year saw the implementation of new regional unemployment rate methodologies in the territories and new EI economic regions in the territories and Prince Edward Island?",
+      "target_id": "20212022_table_0519_0430",
+      "chunk_type": "table",
+      "fiscal_year": "2021-2022",
+      "rank": null,
+      "top5_ids": [
+        "20212022_table_0512_0412",
+        "20212022_narrative_0157_0127",
+        "20212022_table_0253_0167",
+        "20212022_table_0532_0475",
+        "20212022_narrative_0266_0213"
+      ]
+    },
+    {
+      "question": "What was the total number of new claims established for parental extended benefits in fiscal year 2017-2018?",
+      "target_id": "20212022_table_0388_0274",
+      "chunk_type": "table",
+      "fiscal_year": "2021-2022",
+      "rank": null,
+      "top5_ids": [
+        "20212022_table_0260_0192",
+        "20212022_table_0246_0142",
+        "20212022_table_0257_0182",
+        "20212022_table_0254_0169",
+        "20212022_narrative_0020_0008"
+      ]
+    },
+    {
+      "question": "How many new EI claims were established in Newfoundland and Labrador during the first half of fiscal year 2021-2022?",
+      "target_id": "20212022_table_0346_0231",
+      "chunk_type": "table",
+      "fiscal_year": "2021-2022",
+      "rank": null,
+      "top5_ids": [
+        "20212022_narrative_0271_0216",
+        "20212022_table_0507_0395",
+        "20212022_narrative_0060_0042",
+        "20212022_narrative_0058_0041",
+        "20212022_table_0130_0043"
+      ]
+    },
+    {
+      "question": "By what percentage did the number of participating self-employed persons increase from 2021-22 to 2022-23?",
+      "target_id": "20222023_narrative_0174_0143",
+      "chunk_type": "narrative",
+      "fiscal_year": "2022-2023",
+      "rank": null,
+      "top5_ids": [
+        "20222023_table_0535_0480",
+        "20222023_table_0241_0162",
+        "20222023_table_0268_0202",
+        "20222023_table_0118_0042",
+        "20222023_table_0541_0500"
+      ]
+    },
+    {
+      "question": "According to the Labour Force Survey, what percentage of total employment in the Atlantic provinces did seasonal workers account for in 2022-23?",
+      "target_id": "20222023_narrative_0105_0080",
+      "chunk_type": "narrative",
+      "fiscal_year": "2022-2023",
+      "rank": null,
+      "top5_ids": [
+        "20222023_table_0535_0480",
+        "20222023_table_0356_0283",
+        "20222023_narrative_0183_0152",
+        "20222023_table_0541_0500",
+        "20222023_table_0241_0162"
+      ]
+    },
+    {
+      "question": "In the 2022-23 fiscal year, what was the average amount in EI fishing benefits received by fishers who established only one claim?",
+      "target_id": "20222023_narrative_0137_0111",
+      "chunk_type": "narrative",
+      "fiscal_year": "2022-2023",
+      "rank": null,
+      "top5_ids": [
+        "20222023_table_0514_0465",
+        "20222023_narrative_0046_0030",
+        "20222023_table_0302_0235",
+        "20222023_table_0395_0315",
+        "20222023_table_0536_0486"
+      ]
+    },
+    {
+      "question": "What unemployment rate did Quebec reach in 2022 for individuals aged 15 and over?",
+      "target_id": "20222023_narrative_0224_0173",
+      "chunk_type": "narrative",
+      "fiscal_year": "2022-2023",
+      "rank": null,
+      "top5_ids": [
+        "20222023_narrative_0151_0122",
+        "20222023_table_0325_0259",
+        "20222023_table_0337_0269",
+        "20222023_table_0298_0228",
+        "20222023_narrative_0490_0298"
+      ]
+    },
+    {
+      "question": "According to 2021 tax data from the Canada Revenue Agency, by what percentage did the number of firms operating in Canada increase compared to 2020?",
+      "target_id": "20222023_narrative_0071_0053",
+      "chunk_type": "narrative",
+      "fiscal_year": "2022-2023",
+      "rank": null,
+      "top5_ids": [
+        "20222023_narrative_0118_0092",
+        "20222023_narrative_0380_0260",
+        "20222023_table_0229_0142",
+        "20222023_narrative_0081_0061",
+        "20222023_narrative_0474_0288"
+      ]
+    },
+    {
+      "question": "How many EI regular claims were established in the first half of the 2022-23 fiscal year?",
+      "target_id": "20222023_narrative_0065_0048",
+      "chunk_type": "narrative",
+      "fiscal_year": "2022-2023",
+      "rank": null,
+      "top5_ids": [
+        "20222023_narrative_0291_0209",
+        "20222023_narrative_0105_0081",
+        "20222023_narrative_0073_0055",
+        "20222023_table_0381_0304",
+        "20222023_narrative_0129_0103"
+      ]
+    },
+    {
+      "question": "In what year did the glass recycling co-op mentioned in the report begin operations?",
+      "target_id": "20222023_table_0266_0197",
+      "chunk_type": "table",
+      "fiscal_year": "2022-2023",
+      "rank": null,
+      "top5_ids": [
+        "20222023_narrative_0151_0122",
+        "20222023_table_0325_0259",
+        "20222023_table_0298_0228",
+        "20222023_table_0337_0269",
+        "20222023_narrative_0490_0298"
+      ]
+    },
+    {
+      "question": "What was the amount paid in Employment Insurance (Part I of the Employment Insurance Act) support while on training in Alberta during the fiscal year 2022-2023?",
+      "target_id": "20222023_table_0132_0049",
+      "chunk_type": "table",
+      "fiscal_year": "2022-2023",
+      "rank": null,
+      "top5_ids": [
+        "20222023_table_0241_0162",
+        "20222023_table_0541_0500",
+        "20222023_narrative_0380_0260",
+        "20222023_table_0535_0480",
+        "20222023_narrative_0118_0092"
+      ]
+    },
+    {
+      "question": "In fiscal year 2022-2023, what was the year-over-year change in expenditures for Targeted Wage Subsidies?",
+      "target_id": "20222023_table_0258_0186",
+      "chunk_type": "table",
+      "fiscal_year": "2022-2023",
+      "rank": null,
+      "top5_ids": [
+        "20222023_table_0535_0480",
+        "20222023_table_0541_0500",
+        "20222023_table_0241_0162",
+        "20222023_table_0268_0202",
+        "20222023_table_0356_0283"
+      ]
+    },
+    {
+      "question": "What were the total premium revenues for the Employment Insurance operating account in fiscal year 2021-2022?",
+      "target_id": "20222023_table_0518_0478",
+      "chunk_type": "table",
+      "fiscal_year": "2022-2023",
+      "rank": null,
+      "top5_ids": [
+        "20222023_table_0266_0198",
+        "20222023_table_0201_0097",
+        "20222023_table_0125_0046",
+        "20222023_table_0241_0162",
+        "20222023_table_0209_0110"
+      ]
+    },
+    {
+      "question": "By what percentage did expenditures for Research & Innovation increase between fiscal year 2021-2022 and 2022-2023?",
+      "target_id": "20222023_table_0253_0179",
+      "chunk_type": "table",
+      "fiscal_year": "2022-2023",
+      "rank": null,
+      "top5_ids": [
+        "20222023_table_0199_0090",
+        "20222023_table_0548_0514",
+        "20222023_table_0546_0511",
+        "20222023_table_0317_0253",
+        "20222023_table_0296_0223"
+      ]
+    },
+    {
+      "question": "What was the total amount, in thousands of dollars, paid out for compassionate care benefits in Manitoba during the 2022-2023 fiscal year?",
+      "target_id": "20222023_table_0432_0350",
+      "chunk_type": "table",
+      "fiscal_year": "2022-2023",
+      "rank": null,
+      "top5_ids": [
+        "20222023_narrative_0151_0122",
+        "20222023_table_0325_0259",
+        "20222023_table_0298_0228",
+        "20222023_table_0337_0269",
+        "20222023_narrative_0490_0298"
+      ]
+    },
+    {
+      "question": "What was the average duration of completed claims for the EI family caregiver benefits for adults in 2023-24?",
+      "target_id": "20232024_narrative_0165_0135",
+      "chunk_type": "narrative",
+      "fiscal_year": "2023-2024",
+      "rank": null,
+      "top5_ids": [
+        "20232024_table_0630_0381",
+        "20232024_table_0624_0366",
+        "20232024_table_0622_0361",
+        "20232024_table_0620_0356",
+        "20232024_table_0257_0106"
+      ]
+    },
+    {
+      "question": "According to the evaluation, what year was the previous evaluation of the Work-Sharing Program completed?",
+      "target_id": "20232024_narrative_0612_0415",
+      "chunk_type": "narrative",
+      "fiscal_year": "2023-2024",
+      "rank": null,
+      "top5_ids": [
+        "20232024_table_0389_0146",
+        "20232024_table_0593_0318",
+        "20232024_table_0593_0317",
+        "20232024_table_0645_0431",
+        "20232024_table_0642_0421"
+      ]
+    },
+    {
+      "question": "By how much did the average nominal weekly earnings increase between the 2022-23 and 2023-24 fiscal years?",
+      "target_id": "20232024_narrative_0035_0022",
+      "chunk_type": "narrative",
+      "fiscal_year": "2023-2024",
+      "rank": null,
+      "top5_ids": [
+        "20232024_narrative_0084_0064",
+        "20232024_narrative_0206_0175",
+        "20232024_table_0620_0356",
+        "20232024_table_0477_0207",
+        "20232024_narrative_0151_0122"
+      ]
+    },
+    {
+      "question": "In what year was the Indigenous Skills and Employment Training (ISET) program introduced?",
+      "target_id": "20232024_narrative_0564_0375",
+      "chunk_type": "narrative",
+      "fiscal_year": "2023-2024",
+      "rank": null,
+      "top5_ids": [
+        "20232024_table_0630_0381",
+        "20232024_table_0624_0366",
+        "20232024_table_0622_0361",
+        "20232024_table_0642_0421",
+        "20232024_table_0617_0343"
+      ]
+    },
+    {
+      "question": "What percentage of participants in Workforce Development programming found employment in 2023-24?",
+      "target_id": "20232024_narrative_0293_0236",
+      "chunk_type": "narrative",
+      "fiscal_year": "2023-2024",
+      "rank": null,
+      "top5_ids": [
+        "20232024_table_0593_0317",
+        "20232024_table_0389_0146",
+        "20232024_table_0645_0431",
+        "20232024_table_0593_0318",
+        "20232024_table_0343_0140"
+      ]
+    },
+    {
+      "question": "How many women participated in the Nunavut Literacy Council's Miqqut program during the fiscal year?",
+      "target_id": "20232024_narrative_0350_0275",
+      "chunk_type": "narrative",
+      "fiscal_year": "2023-2024",
+      "rank": null,
+      "top5_ids": [
+        "20232024_table_0342_0139",
+        "20232024_table_0622_0361",
+        "20232024_table_0624_0366",
+        "20232024_table_0644_0428",
+        "20232024_narrative_0084_0064"
+      ]
+    },
+    {
+      "question": "What was the average weekly benefit rate for seasonal regular claimants in Prince Edward Island during 2019-20?",
+      "target_id": "20232024_table_0473_0202",
+      "chunk_type": "table",
+      "fiscal_year": "2023-2024",
+      "rank": null,
+      "top5_ids": [
+        "20232024_narrative_0084_0064",
+        "20232024_table_0620_0356",
+        "20232024_table_0622_0361",
+        "20232024_narrative_0206_0175",
+        "20232024_narrative_0197_0166"
+      ]
+    },
+    {
+      "question": "In Prince Edward Island, what was the average number of weeks worked while on EI regular claim in 2023-24 (preliminary data)?",
+      "target_id": "20232024_table_0121_0040",
+      "chunk_type": "table",
+      "fiscal_year": "2023-2024",
+      "rank": null,
+      "top5_ids": [
+        "20232024_table_0089_0027",
+        "20232024_narrative_0093_0071",
+        "20232024_table_0389_0146",
+        "20232024_table_0642_0421",
+        "20232024_table_0619_0350"
+      ]
+    },
+    {
+      "question": "What was the total number of Targeted Wage Subsidies in Newfoundland for the fiscal year 2023-2024?",
+      "target_id": "20232024_table_0575_0295",
+      "chunk_type": "table",
+      "fiscal_year": "2023-2024",
+      "rank": null,
+      "top5_ids": [
+        "20232024_table_0089_0027",
+        "20232024_table_0070_0017",
+        "20232024_table_0257_0106",
+        "20232024_table_0088_0026",
+        "20232024_table_0622_0361"
+      ]
+    },
+    {
+      "question": "By how much did the inventory of claims pending review reduce between March 31, 2023 and March 31, 2024?",
+      "target_id": "20232024_table_0398_0156",
+      "chunk_type": "table",
+      "fiscal_year": "2023-2024",
+      "rank": null,
+      "top5_ids": [
+        "20232024_table_0089_0027",
+        "20232024_table_0135_0049",
+        "20232024_table_0070_0017",
+        "20232024_table_0642_0421",
+        "20232024_narrative_0093_0071"
+      ]
+    },
+    {
+      "question": "How many EI appeals were in progress on March 31, 2023?",
+      "target_id": "20232024_table_0598_0339",
+      "chunk_type": "table",
+      "fiscal_year": "2023-2024",
+      "rank": null,
+      "top5_ids": [
+        "20232024_table_0619_0350",
+        "20232024_table_0642_0421",
+        "20232024_table_0089_0027",
+        "20232024_table_0389_0146",
+        "20232024_table_0070_0017"
+      ]
+    }
+  ],
+  "run_timestamp": "20260228_222810",
+  "run_label": ""
+}

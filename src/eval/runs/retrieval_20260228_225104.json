@@ -1,0 +1,168 @@
+{
+  "n_questions": 60,
+  "recall": {
+    "@1": 0.683,
+    "@3": 0.817,
+    "@5": 0.817,
+    "@10": 0.817
+  },
+  "mrr": 0.742,
+  "misses": [
+    {
+      "question": "What was the average weekly Work-Sharing benefit rate for women in fiscal year 2018-2019?",
+      "target_id": "20192020_table_0142_0044",
+      "chunk_type": "table",
+      "fiscal_year": "2019-2020",
+      "rank": null,
+      "top5_ids": [
+        "20192020_narrative_0052_0039",
+        "20192020_narrative_0091_0075",
+        "20192020_narrative_0053_0040",
+        "20192020_narrative_0089_0073",
+        "20192020_narrative_0140_0121"
+      ]
+    },
+    {
+      "question": "In what fiscal year did data on family caregiver benefits begin to be included in the analysis on combined claims?",
+      "target_id": "20202021_narrative_0062_0049",
+      "chunk_type": "narrative",
+      "fiscal_year": "2020-2021",
+      "rank": null,
+      "top5_ids": [
+        "20202021_narrative_0060_0047",
+        "20202021_narrative_0052_0038",
+        "20202021_narrative_0405_0290",
+        "20202021_narrative_0408_0291",
+        "20202021_narrative_0050_0037"
+      ]
+    },
+    {
+      "question": "In the 2021-2022 fiscal year, what was the average number of benefit weeks received by claimants aged 24 years and under while on training?",
+      "target_id": "20212022_narrative_0141_0112",
+      "chunk_type": "narrative",
+      "fiscal_year": "2021-2022",
+      "rank": null,
+      "top5_ids": [
+        "20212022_narrative_0136_0107",
+        "20212022_narrative_0183_0151",
+        "20212022_narrative_0140_0111",
+        "20212022_narrative_0096_0075",
+        "20212022_narrative_0177_0146"
+      ]
+    },
+    {
+      "question": "What percentage of clients served in employment benefits programs were women during the 2021-2022 fiscal year?",
+      "target_id": "20212022_narrative_0459_0304",
+      "chunk_type": "narrative",
+      "fiscal_year": "2021-2022",
+      "rank": null,
+      "top5_ids": [
+        "20212022_narrative_0265_0211",
+        "20212022_narrative_0062_0044",
+        "20212022_table_0465_0346",
+        "20212022_table_0248_0150",
+        "20212022_table_0231_0092"
+      ]
+    },
+    {
+      "question": "What was the maximum number of weeks of additional benefits provided by the Temporary Additional Employment Insurance Benefits for Unemployed Long-tenured Workers?",
+      "target_id": "20212022_table_0529_0467",
+      "chunk_type": "table",
+      "fiscal_year": "2021-2022",
+      "rank": null,
+      "top5_ids": [
+        "20212022_table_0508_0398",
+        "20212022_narrative_0099_0077",
+        "20212022_narrative_0170_0140",
+        "20212022_narrative_0100_0078",
+        "20212022_narrative_0115_0090"
+      ]
+    },
+    {
+      "question": "What was the total number of new claims established for parental extended benefits in fiscal year 2017-2018?",
+      "target_id": "20212022_table_0388_0274",
+      "chunk_type": "table",
+      "fiscal_year": "2021-2022",
+      "rank": null,
+      "top5_ids": [
+        "20212022_table_0398_0284",
+        "20212022_table_0421_0307",
+        "20212022_narrative_0169_0138",
+        "20212022_table_0394_0280",
+        "20212022_table_0254_0169"
+      ]
+    },
+    {
+      "question": "How many new EI claims were established in Newfoundland and Labrador during the first half of fiscal year 2021-2022?",
+      "target_id": "20212022_table_0346_0231",
+      "chunk_type": "table",
+      "fiscal_year": "2021-2022",
+      "rank": null,
+      "top5_ids": [
+        "20212022_table_0366_0251",
+        "20212022_table_0390_0276",
+        "20212022_table_0358_0243",
+        "20212022_table_0398_0284",
+        "20212022_narrative_0060_0042"
+      ]
+    },
+    {
+      "question": "What were the total premium revenues for the Employment Insurance operating account in fiscal year 2021-2022?",
+      "target_id": "20222023_table_0518_0478",
+      "chunk_type": "table",
+      "fiscal_year": "2022-2023",
+      "rank": null,
+      "top5_ids": [
+        "20222023_table_0182_0077",
+        "20222023_narrative_0182_0151",
+        "20222023_narrative_0176_0145",
+        "20222023_table_0201_0097",
+        "20222023_table_0556_0547"
+      ]
+    },
+    {
+      "question": "By what percentage did expenditures for Research & Innovation increase between fiscal year 2021-2022 and 2022-2023?",
+      "target_id": "20222023_table_0253_0179",
+      "chunk_type": "table",
+      "fiscal_year": "2022-2023",
+      "rank": null,
+      "top5_ids": [
+        "20222023_narrative_0197_0161",
+        "20222023_table_0199_0090",
+        "20222023_table_0241_0162",
+        "20222023_table_0268_0202",
+        "20222023_table_0258_0186"
+      ]
+    },
+    {
+      "question": "What was the total amount, in thousands of dollars, paid out for compassionate care benefits in Manitoba during the 2022-2023 fiscal year?",
+      "target_id": "20222023_table_0432_0350",
+      "chunk_type": "table",
+      "fiscal_year": "2022-2023",
+      "rank": null,
+      "top5_ids": [
+        "20222023_narrative_0168_0137",
+        "20222023_narrative_0153_0124",
+        "20222023_narrative_0053_0035",
+        "20222023_narrative_0169_0138",
+        "20222023_narrative_0151_0122"
+      ]
+    },
+    {
+      "question": "What was the total number of Targeted Wage Subsidies in Newfoundland for the fiscal year 2023-2024?",
+      "target_id": "20232024_table_0575_0295",
+      "chunk_type": "table",
+      "fiscal_year": "2023-2024",
+      "rank": null,
+      "top5_ids": [
+        "20232024_table_0576_0296",
+        "20232024_table_0582_0302",
+        "20232024_table_0342_0139",
+        "20232024_table_0257_0106",
+        "20232024_table_0322_0131"
+      ]
+    }
+  ],
+  "run_timestamp": "20260228_225104",
+  "run_label": ""
+}

@@ -606,59 +606,6 @@
     .btn-refine:hover { background: #d97706; }
     .btn-refine:disabled { background: #fcd34d; cursor: not-allowed; }
 
-    /* ── GPU status dot ───────────────────────────────────────────── */
-    .gpu-status {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 0.75rem;
-      color: var(--muted);
-      white-space: nowrap;
-      cursor: default;
-    }
-    .gpu-dot {
-      width: 9px;
-      height: 9px;
-      border-radius: 50%;
-      background: var(--muted);
-      flex-shrink: 0;
-      transition: background .4s;
-    }
-    .gpu-dot.green  { background: var(--green); }
-    .gpu-dot.yellow { background: var(--amber); }
-    .gpu-dot.red    { background: var(--red); }
-
-    /* ── Sample questions ─────────────────────────────────────────── */
-    .sample-questions {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: flex-start;
-      gap: 6px;
-    }
-    .sample-label {
-      font-size: 0.75rem;
-      color: var(--muted);
-      white-space: nowrap;
-      padding-top: 5px;
-    }
-    .sample-chip {
-      padding: 5px 12px;
-      border-radius: 99px;
-      border: 1px solid var(--border);
-      background: #f8fafc;
-      font-size: 0.75rem;
-      color: var(--secondary);
-      cursor: pointer;
-      transition: all .15s;
-      text-align: left;
-      line-height: 1.4;
-    }
-    .sample-chip:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-      background: #eff6ff;
-    }
-
     /* ── Empty state ──────────────────────────────────────────────── */
     .empty-state {
       text-align: center;
@@ -785,10 +732,6 @@
       <button class="year-pill" data-year="2022-2023">2022–23</button>
       <button class="year-pill" data-year="2023-2024">2023–24</button>
     </div>
-    <div class="gpu-status" id="gpu-status" title="GPU availability">
-      <div class="gpu-dot" id="gpu-dot"></div>
-      <span id="gpu-label">GPU …</span>
-    </div>
   </div>
 </header>
 
@@ -816,15 +759,8 @@
 
     <label class="deep-row">
       <input type="checkbox" id="power-search" />
-      <span><strong>Deep Search</strong> — uses Stage 3 retrieval (HyDE + BM25 + broader search) for hard questions</span>
+      <span><strong>Deep Search</strong> — slower but searches twice as many chunks for hard questions</span>
     </label>
-
-    <div class="sample-questions">
-      <span class="sample-label">Try:</span>
-      <button class="sample-chip" onclick="useQuestion(this)">What was the total amount paid out in EI regular benefits during the 2019/2020 fiscal year?</button>
-      <button class="sample-chip" onclick="useQuestion(this)">By what percentage did employment in Canada decline by April 2020 compared with February 2020?</button>
-      <button class="sample-chip" onclick="useQuestion(this)">What is the minimum age requirement and standard educational level usually needed to enter an apprenticeship program in most jurisdictions?</button>
-    </div>
   </div>
 
   <!-- Status bar -->
@@ -903,13 +839,12 @@
 
 <script>
   // ── State ──────────────────────────────────────────────────────────────────
-  let currentQuery    = "";
-  let selectedYear    = "";
-  let lastAnswer      = "";
-  let lastSources     = [];
-  let pdfsAvailable   = false;
-  let attachedImage   = null; // base64 string
-  let _coldStartTimer = null;
+  let currentQuery  = "";
+  let selectedYear  = "";
+  let lastAnswer    = "";
+  let lastSources   = [];
+  let pdfsAvailable = false;
+  let attachedImage = null; // base64 string
 
   // ── Image upload ───────────────────────────────────────────────────────────
   function handleImageUpload(event) {
@@ -969,40 +904,6 @@
   // Fetch server config once on load to know if PDFs are available
   fetch("/api/config").then(r => r.json()).then(c => { pdfsAvailable = !!c.pdfs_available; }).catch(() => {});
 
-  // ── GPU status indicator (polls /api/health every 30s, no GPU cost) ────────
-  async function updateGpuStatus() {
-    const dot   = document.getElementById("gpu-dot");
-    const label = document.getElementById("gpu-label");
-    try {
-      const data = await fetch("/api/health").then(r => r.json());
-      if (data.error) throw new Error(data.error);
-      const idle    = (data.idle  || 0) + (data.ready || 0);
-      const busy    = data.running      || 0;
-      const starting = data.initializing || 0;
-      const status  = document.getElementById("gpu-status");
-      if (idle > 0) {
-        dot.className     = "gpu-dot green";
-        label.textContent = "GPU ready";
-        status.title      = `${idle} worker(s) idle${busy ? ` · ${busy} running` : ""}`;
-      } else if (busy > 0 || starting > 0) {
-        dot.className     = "gpu-dot yellow";
-        label.textContent = busy > 0 ? "GPU busy" : "GPU starting";
-        status.title      = busy > 0
-          ? `${busy} worker(s) processing — may queue briefly`
-          : `${starting} worker(s) initializing`;
-      } else {
-        dot.className     = "gpu-dot red";
-        label.textContent = "GPU unavailable";
-        status.title      = "No workers available — responses may be delayed";
-      }
-    } catch (_) {
-      dot.className   = "gpu-dot";
-      label.textContent = "GPU …";
-    }
-  }
-  updateGpuStatus();
-  setInterval(updateGpuStatus, 30000);
-
   // ── Year pill selection ────────────────────────────────────────────────────
   document.getElementById("year-pills").addEventListener("click", e => {
     const pill = e.target.closest(".year-pill");
@@ -1011,28 +912,6 @@
     pill.classList.add("active");
     selectedYear = pill.dataset.year;
   });
-
-  // ── Sample question chips ──────────────────────────────────────────────────
-  function useQuestion(btn) {
-    document.getElementById("query").value = btn.textContent.trim();
-    document.getElementById("query").focus();
-    doAsk();
-  }
-
-  // ── Cold start timer ───────────────────────────────────────────────────────
-  // If no progress event for 30s, warn user the worker may be cold-starting.
-  function resetColdStartTimer() {
-    if (_coldStartTimer) clearTimeout(_coldStartTimer);
-    _coldStartTimer = setTimeout(() => {
-      setStatus("Worker starting up — model loading from cold state (may take 1\u20132 min)\u2026", true);
-      _coldStartTimer = setTimeout(() => {
-        setStatus("Still loading \u2014 almost there\u2026", true);
-      }, 60000);
-    }, 30000);
-  }
-  function clearColdStartTimer() {
-    if (_coldStartTimer) { clearTimeout(_coldStartTimer); _coldStartTimer = null; }
-  }
 
   // ── Utilities ──────────────────────────────────────────────────────────────
   function esc(str) {
@@ -1079,8 +958,8 @@
     const powerSearch = document.getElementById("power-search").checked;
 
     btn.disabled = true;
-    btn.textContent = "Thinking\u2026";
-    setStatus("Submitting question\u2026", true);
+    btn.textContent = "Thinking…";
+    setStatus("Running pipeline — generating query variants, retrieving chunks…", true);
 
     document.getElementById("empty-state").style.display = "none";
     document.getElementById("answer-section").style.display = "flex";
@@ -1109,67 +988,28 @@
         body: JSON.stringify(body),
       });
 
-      if (!resp.ok || !resp.body) {
+      if (!resp.ok) {
         const err = await resp.json().catch(() => ({}));
         setStatus("Error: " + (err.error || resp.statusText));
         return;
       }
 
-      // Start cold-start warning timer — clears when first real progress arrives
-      resetColdStartTimer();
+      const data = await resp.json();
+      const elapsed = ((Date.now() - t0) / 1000).toFixed(1);
+      setStatus(`Answered in ${elapsed}s`);
 
-      const reader  = resp.body.getReader();
-      const decoder = new TextDecoder();
-      let buffer    = "";
-      let gotResult = false;
+      lastAnswer  = data.answer;
+      lastSources = data.sources || [];
 
-      while (true) {
-        const { done, value } = await reader.read();
-        if (done) break;
-        buffer += decoder.decode(value, { stream: true });
-
-        // SSE frames are separated by "\n\n"
-        const parts = buffer.split("\n\n");
-        buffer = parts.pop(); // hold incomplete trailing chunk
-
-        for (const part of parts) {
-          const line = part.trim();
-          if (!line.startsWith("data: ")) continue;
-          let event;
-          try { event = JSON.parse(line.slice(6)); } catch { continue; }
-
-          if (event.type === "progress") {
-            resetColdStartTimer(); // real message received — reset timer
-            setStatus(event.message, true);
-          } else if (event.type === "result") {
-            clearColdStartTimer();
-            gotResult   = true;
-            lastAnswer  = event.answer;
-            lastSources = event.sources || [];
-            const elapsed = ((Date.now() - t0) / 1000).toFixed(1);
-            setStatus(`Answered in ${elapsed}s`);
-            renderAnswer(event);
-            renderTrace(event);
-            renderSources(event.sources || []);
-          } else if (event.type === "error") {
-            clearColdStartTimer();
-            gotResult = true; // prevent "no response" from overwriting the error
-            setStatus("Error: " + event.error);
-          }
-        }
-      }
-
-      if (!gotResult) {
-        clearColdStartTimer();
-        setStatus("No response received \u2014 please try again.");
-      }
+      renderAnswer(data);
+      renderTrace(data);
+      renderSources(data.sources || []);
 
     } catch (e) {
-      clearColdStartTimer();
       setStatus("Network error: " + e.message);
     } finally {
       btn.disabled = false;
-      btn.textContent = "Ask \u2192";
+      btn.textContent = "Ask →";
     }
   }
 
