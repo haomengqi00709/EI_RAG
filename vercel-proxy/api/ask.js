@@ -73,9 +73,13 @@ export default async function handler(req, res) {
     seenCount = streamChunks.length;
 
     if (streamData.status === "COMPLETED") {
-      // If final result wasn't in the stream chunks, it lives in streamData.output
+      // Forward final output if not already sent via stream chunks
       const hasResult = streamChunks.some(c => c.output && c.output.type === "result");
-      if (!hasResult && streamData.output) send(streamData.output);
+      if (!hasResult && streamData.output) {
+        const out = streamData.output;
+        // Wrap bare output (non-generator handler) so frontend can handle it
+        send(out.type ? out : { type: "result", ...out });
+      }
       break;
     }
 

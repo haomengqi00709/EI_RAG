@@ -1153,6 +1153,7 @@
             renderSources(event.sources || []);
           } else if (event.type === "error") {
             clearColdStartTimer();
+            gotResult = true; // prevent "no response" from overwriting the error
             setStatus("Error: " + event.error);
           }
         }
