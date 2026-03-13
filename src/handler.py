@@ -22,6 +22,10 @@ from pathlib import Path
 VOLUME  = Path(os.getenv("RUNPOD_VOLUME_PATH", "/runpod-volume"))
 WORKDIR = VOLUME  # data/ lives directly under the volume root
 os.chdir(WORKDIR)
+print(f"[DEBUG] VOLUME={VOLUME}  CWD={os.getcwd()}")
+print(f"[DEBUG] Volume contents: {sorted(str(p.name) for p in VOLUME.iterdir()) if VOLUME.exists() else 'MISSING'}")
+data_path = VOLUME / "data" / "embeddings"
+print(f"[DEBUG] data/embeddings exists: {data_path.exists()}")
 
 # HF model cache on volume → persists across cold starts
 os.environ["HF_HOME"]            = str(VOLUME / "hf-cache")
