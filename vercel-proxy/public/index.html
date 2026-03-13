@@ -59,6 +59,52 @@
       margin-top: 2px;
     }
 
+    /* ── Server status dot ────────────────────────────────────────── */
+    .server-status {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      position: relative;
+      cursor: default;
+      flex-shrink: 0;
+    }
+    .status-dot {
+      width: 9px; height: 9px;
+      border-radius: 50%;
+      background: var(--muted);
+      flex-shrink: 0;
+      transition: background .3s;
+    }
+    .status-dot.green  { background: var(--green); }
+    .status-dot.red    { background: var(--red); }
+    .status-dot.checking {
+      background: var(--amber);
+      animation: pulse-dot 1.4s ease-in-out infinite;
+    }
+    @keyframes pulse-dot { 0%,100%{opacity:1} 50%{opacity:.35} }
+    .status-label {
+      font-size: 0.72rem;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+    .status-tooltip {
+      display: none;
+      position: absolute;
+      top: calc(100% + 10px);
+      right: 0;
+      background: #1e293b;
+      color: #f1f5f9;
+      font-size: 0.72rem;
+      line-height: 1.5;
+      padding: 8px 12px;
+      border-radius: 8px;
+      white-space: normal;
+      width: 230px;
+      z-index: 100;
+      box-shadow: 0 4px 16px rgba(0,0,0,.25);
+    }
+    .server-status:hover .status-tooltip { display: block; }
+
     /* ── Year pills ───────────────────────────────────────────────── */
     .year-pills {
       display: flex;
@@ -763,6 +809,11 @@
       <button class="year-pill" data-year="2022-2023">2022–23</button>
       <button class="year-pill" data-year="2023-2024">2023–24</button>
     </div>
+    <div class="server-status" id="server-status">
+      <div class="status-dot checking" id="status-dot"></div>
+      <span class="status-label" id="status-label">Checking…</span>
+      <div class="status-tooltip" id="status-tooltip">Checking server status…</div>
+    </div>
   </div>
 </header>
 
@@ -991,6 +1042,35 @@
       bar.style.display = "none";
     }
   }
+
+  // ── Server status check ────────────────────────────────────────────────────
+  async function checkServerStatus() {
+    const dot     = document.getElementById("status-dot");
+    const label   = document.getElementById("status-label");
+    const tooltip = document.getElementById("status-tooltip");
+    try {
+      const r    = await fetch("/api/health");
+      const data = await r.json();
+      const idle    = data.workers?.idle    ?? 0;
+      const ready   = data.workers?.ready   ?? 0;
+      const running = data.workers?.running ?? 0;
+      const warm    = idle + ready + running;
+      if (warm > 0) {
+        dot.className   = "status-dot green";
+        label.textContent = "Ready";
+        tooltip.textContent = `${warm} worker${warm > 1 ? "s" : ""} active — responses will be fast.`;
+      } else {
+        dot.className   = "status-dot red";
+        label.textContent = "Cold";
+        tooltip.textContent = "No GPU workers are currently active. The first request will take ~60 seconds to warm up the server before answering.";
+      }
+    } catch (_) {
+      dot.className   = "status-dot";
+      label.textContent = "";
+      tooltip.textContent = "Could not reach the server.";
+    }
+  }
+  checkServerStatus();
 
   // ── Main Ask flow ──────────────────────────────────────────────────────────
   async function doAsk(clarification) {
