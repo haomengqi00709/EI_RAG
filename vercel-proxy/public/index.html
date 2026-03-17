@@ -1057,7 +1057,7 @@
   function setStatusWarming() {
     dot.className     = "status-dot checking";
     label.textContent = "Warming up…";
-    tooltip.textContent = "Server is starting up. It will be ready in about 30–60 seconds — your first question will be answered automatically once warm.";
+    tooltip.textContent = "Server is starting — first request may take 30–60 seconds while the worker initialises.";
   }
   function setStatusError() {
     dot.className     = "status-dot";
@@ -1090,8 +1090,6 @@
         setStatusGreen(warm);
       } else {
         setStatusWarming();
-        // Fire async ping to trigger cold start in background
-        fetch("/api/warmup", { method: "POST" }).catch(() => {});
         pollUntilWarm();
       }
     } catch (_) {
