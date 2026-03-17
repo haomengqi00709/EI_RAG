@@ -114,6 +114,9 @@ def handler(job):
     power_search = bool(inp.get("power_search", False))
     image_b64    = inp.get("image", None) or None
 
+    if inp.get("ping"):
+        return {"pong": True}
+
     if not question:
         return {"error": "No question provided"}
 

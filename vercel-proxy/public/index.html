@@ -1043,31 +1043,59 @@
     }
   }
 
-  // ── Server status check ────────────────────────────────────────────────────
+  // ── Server status check + auto-warmup ─────────────────────────────────────
+  const dot     = document.getElementById("status-dot");
+  const label   = document.getElementById("status-label");
+  const tooltip = document.getElementById("status-tooltip");
+  let _pollTimer = null;
+
+  function setStatusGreen(workerCount) {
+    dot.className     = "status-dot green";
+    label.textContent = "Ready";
+    tooltip.textContent = `${workerCount} worker${workerCount > 1 ? "s" : ""} active — responses will be fast.`;
+  }
+  function setStatusWarming() {
+    dot.className     = "status-dot checking";
+    label.textContent = "Warming up…";
+    tooltip.textContent = "Server is starting up. It will be ready in about 30–60 seconds — your first question will be answered automatically once warm.";
+  }
+  function setStatusError() {
+    dot.className     = "status-dot";
+    label.textContent = "";
+    tooltip.textContent = "Could not reach the server.";
+  }
+
+  async function getWorkerCount() {
+    const r    = await fetch("/api/health");
+    const data = await r.json();
+    return (data.workers?.idle ?? 0) + (data.workers?.ready ?? 0) + (data.workers?.running ?? 0);
+  }
+
+  function pollUntilWarm() {
+    _pollTimer = setInterval(async () => {
+      try {
+        const warm = await getWorkerCount();
+        if (warm > 0) {
+          clearInterval(_pollTimer);
+          setStatusGreen(warm);
+        }
+      } catch (_) {}
+    }, 5000);
+  }
+
   async function checkServerStatus() {
-    const dot     = document.getElementById("status-dot");
-    const label   = document.getElementById("status-label");
-    const tooltip = document.getElementById("status-tooltip");
     try {
-      const r    = await fetch("/api/health");
-      const data = await r.json();
-      const idle    = data.workers?.idle    ?? 0;
-      const ready   = data.workers?.ready   ?? 0;
-      const running = data.workers?.running ?? 0;
-      const warm    = idle + ready + running;
+      const warm = await getWorkerCount();
       if (warm > 0) {
-        dot.className   = "status-dot green";
-        label.textContent = "Ready";
-        tooltip.textContent = `${warm} worker${warm > 1 ? "s" : ""} active — responses will be fast.`;
+        setStatusGreen(warm);
       } else {
-        dot.className   = "status-dot red";
-        label.textContent = "Cold";
-        tooltip.textContent = "No GPU workers are currently active. The first request will take ~60 seconds to warm up the server before answering.";
+        setStatusWarming();
+        // Fire async ping to trigger cold start in background
+        fetch("/api/warmup", { method: "POST" }).catch(() => {});
+        pollUntilWarm();
       }
     } catch (_) {
-      dot.className   = "status-dot";
-      label.textContent = "";
-      tooltip.textContent = "Could not reach the server.";
+      setStatusError();
     }
   }
   checkServerStatus();
