@@ -40,6 +40,7 @@ from embed import load_embedding_model
 from generate import generate_answer_map_reduce, generate_query_variants
 from retrieve import (
     _deduplicate,
+    _load_qwen_reranker,
     expand_context,
     expand_full_page,
     load_bm25,
@@ -102,6 +103,9 @@ chunks = load_chunks()
 
 print("Loading BM25 index…")
 bm25 = load_bm25(manifest, chunks)
+
+print("Loading reranker…")
+_load_qwen_reranker()
 
 print(f"Ready — {len(manifest)} vectors indexed.\n")
 

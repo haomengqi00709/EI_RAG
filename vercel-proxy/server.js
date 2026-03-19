@@ -56,7 +56,7 @@ app.post("/api/ask", async (req, res) => {
   // Cold start — poll until done (no timeout issue on Railway)
   if (result.status === "IN_QUEUE" || result.status === "IN_PROGRESS") {
     const jobId = data.id;
-    const deadline = Date.now() + 110_000;
+    const deadline = Date.now() + 250_000;
     while (Date.now() < deadline) {
       await new Promise(r => setTimeout(r, 4000));
       const poll = await fetch(`${RUNPOD_BASE}/status/${jobId}`, { headers: { Authorization: AUTH } });
