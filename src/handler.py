@@ -112,6 +112,10 @@ print(f"Ready — {len(manifest)} vectors indexed.\n")
 
 # ── Handler ────────────────────────────────────────────────────────────────────
 def handler(job):
+    import time
+    t0 = time.time()
+    def elapsed(): return f"{time.time() - t0:.1f}s"
+
     inp          = job.get("input", {})
     question     = inp.get("question", "").strip()
     fiscal_year  = inp.get("fiscal_year", "")
@@ -124,14 +128,14 @@ def handler(job):
     if not question:
         return {"error": "No question provided"}
 
-    # Auto-detect fiscal year if not supplied
+    print(f"[{elapsed()}] understand_query start")
     filters     = understand_query(question)
     fy_filter   = fiscal_year or filters.get("fiscal_year", "")
-    strict_year = bool(fiscal_year)  # skip year-relaxed in Stage 3 when caller specified a year
+    strict_year = bool(fiscal_year)
+    print(f"[{elapsed()}] understand_query done — filters={filters}")
 
-    # Deep search (power_search=True): run Stage 3 directly for all questions
-    # Normal search: Stage 1, then auto-escalate to Stage 3 if abstained
     if power_search:
+        print(f"[{elapsed()}] retrieve_stage3 start (power_search)")
         results = retrieve_stage3(
             question=question,
             vectors=vectors, bm25=bm25,
@@ -142,14 +146,20 @@ def handler(job):
             strict_year=strict_year,
         )
         results = _deduplicate(results)
+        print(f"[{elapsed()}] retrieve_stage3 done — {len(results)} results")
+        print(f"[{elapsed()}] generate start")
         gen = generate_answer_map_reduce(
             question, results, gemini, gemini,
             chunks=chunks, neighbor_radius=3,
             image_b64=image_b64,
         )
+        print(f"[{elapsed()}] generate done — abstained={gen['abstained']}")
         search_stage = 3
     else:
+        print(f"[{elapsed()}] generate_query_variants start")
         variants = generate_query_variants(question, gemini, n=3, image_b64=image_b64)
+        print(f"[{elapsed()}] generate_query_variants done — {len(variants)} variants")
+        print(f"[{elapsed()}] retrieve_multi_query start")
         results  = retrieve_multi_query(
             questions=variants,
             vectors=vectors, bm25=bm25,
@@ -161,16 +171,18 @@ def handler(job):
         results = expand_context(results, chunks)
         results = _deduplicate(results)
         results = results[:5]
+        print(f"[{elapsed()}] retrieve_multi_query done — {len(results)} results")
+        print(f"[{elapsed()}] generate start (stage 1)")
         gen = generate_answer_map_reduce(
             question, results, gemini, gemini,
             chunks=chunks, neighbor_radius=1,
             image_b64=image_b64,
         )
+        print(f"[{elapsed()}] generate done — abstained={gen['abstained']}")
         search_stage = 1
 
-        # Stage 3 auto-escalation when Stage 1 abstains
         if gen["abstained"]:
-            print(f"  Stage 1 abstained → escalating to Stage 3…")
+            print(f"[{elapsed()}] Stage 1 abstained → escalating to Stage 3…")
             results_s3 = retrieve_stage3(
                 question=question,
                 vectors=vectors, bm25=bm25,
@@ -182,15 +194,20 @@ def handler(job):
             )
             if results_s3:
                 results_s3 = _deduplicate(results_s3)
+                print(f"[{elapsed()}] stage3 retrieve done — {len(results_s3)} results")
+                print(f"[{elapsed()}] generate start (stage 3)")
                 gen_s3 = generate_answer_map_reduce(
                     question, results_s3, gemini, gemini,
                     chunks=chunks, neighbor_radius=3,
                     image_b64=image_b64,
                 )
+                print(f"[{elapsed()}] generate done (stage 3) — abstained={gen_s3['abstained']}")
                 if not gen_s3["abstained"]:
                     gen     = gen_s3
                     results = results_s3
             search_stage = 3
+
+    print(f"[{elapsed()}] total job time")
 
     # Build sources list
     signal_by_rank = {m["rank"]: m["signal"] for m in gen.get("mapped", [])}
