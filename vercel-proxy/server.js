@@ -1,6 +1,7 @@
 import express from "express";
 import path from "path";
 import { fileURLToPath } from "url";
+import { existsSync } from "fs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const app = express();
@@ -9,6 +10,12 @@ app.use(express.static(path.join(__dirname, "public")));
 
 const RUNPOD_BASE = `https://api.runpod.ai/v2/${process.env.RUNPOD_ENDPOINT_ID}`;
 const AUTH = `Bearer ${process.env.RUNPOD_API_KEY}`;
+
+// ── Config ─────────────────────────────────────────────────────────────────
+app.get("/api/config", (req, res) => {
+  const docsPath = path.join(__dirname, "public", "Documents");
+  res.json({ pdfs_available: existsSync(docsPath) });
+});
 
 // ── Health ─────────────────────────────────────────────────────────────────
 app.get("/api/health", async (req, res) => {
